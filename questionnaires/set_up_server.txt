@@ -1,0 +1,20 @@
+https://docs.mysurvey.solutions/headquarters/cawi/web-interviewing/
+
+Self-enumeration mode
+
+The person responsible for the assignment must be an interviewer
+Onle link public. All visitors will have the chance to fill out 
+
+Bulk email delivery to give them the chance to receive a link to follow in case their session is interrupted
+quantity -1
+email empty
+password empty
+
+
+Or personalized without a password
+quantity=1
+email=..specified..
+password=..empty..
+
+
+To continue working on the interview the respondent must open exactly the same URL he/she sees during the interviewing. This URL may be different from the one contained in the originally received invitation. The respondent may copy and preserve the URL from his/her browser’s address line at any time. In addition, if the bulk email service is set up by the server administrator, the user will be asked for the contact email at the beginning of the interview. If the email is provided, a message containing the continuation link will be sent to that email. If the server administrator wants to disable this feature, he/she should uncheck the corresponding option in the ‘Web interview settings’: Menu → Administration → Settings → Web interview settings.

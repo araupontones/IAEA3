@@ -10,6 +10,8 @@ raw_themes <- read_sheet(url_gs, 'themes')
 
 names(raw_themes)
 cat_themes <- raw_themes %>%
+  #excluding this because it is not part of the report
+  filter(Theme != "Nuclear Knowledge Development and Management") %>%
   rename(title = Theme,
          value = theme_code)
 
@@ -17,6 +19,7 @@ cat_themes <- raw_themes %>%
 export(cat_themes,'questionnaires/categories/themes.xlsx', sheetName = "Categories", overwrite = T)
 
 #Improvements ==================================================================
+#' Generate a list of the improvements  
 
 raw_improvements <- read_sheet(url_gs, "improvements") 
 
@@ -34,25 +37,32 @@ export(cat_improvements,'questionnaires/categories/improvements.xlsx', sheetName
 
 
 #Improvement levels ============================================================
-#this are the likert scale for each improvement 
+#'these are the likert scale for each improvement 
 cat_levels <- raw_improvements %>%
+  #'keep only the code and the levels
   select(improvement_code,
          starts_with("Level")) %>%
   pivot_longer(-improvement_code,
                names_to = 'level',
                values_to = 'title') %>%
   filter(!is.na(title)) %>%
-  mutate(improvement_code = ifelse(is.na(improvement_code), 90, improvement_code),
+  #' assign a code to the general categories
+  #' They start with 0 so No capacity is always the first option in the questionnaire
+  mutate(improvement_code = ifelse(is.na(improvement_code), 0, improvement_code),
          level = stringr::str_remove(level,"Level "),
          value = paste0(improvement_code, level)
-         )
+         ) %>%
+  arrange(value)
 
 
 export(select(cat_levels, title, value),'questionnaires/categories/improvements_levels.xlsx', sheetName = "Categories", overwrite = T )
 
 
 #look up table whether improvement has custom categories =======================
+#' Some improvements do not have a custom level
+#' For those, we use the general category
 lkp_levels <- cat_improvements %>%
+  #identify those that do not have a custom level
   mutate(has_level = value %in% unique(cat_levels$improvement_code),
          has_level = ifelse(has_level,1,0)) %>%
   filter(!is.na(value)) %>%
@@ -61,6 +71,40 @@ lkp_levels <- cat_improvements %>%
 
 export(lkp_levels,'questionnaires/categories/lkp_improvement_levels.txt', sep = "\t" )
 
+
+#TYPES =======================================================================
+
+
+
+cat_types <-create_cat_options(raw_improvements, starts_con = "Type ", names_a = "type", new_var = type)
+
+export(select(cat_types, title, value),'questionnaires/categories/improvements_types.xlsx', sheetName = "Categories", overwrite = T )
+
+
+#
+lkp_types <- cat_improvements %>%
+  #identify those that do not have a custom level
+  mutate(has_type = value %in% unique(cat_types$improvement_code),
+         has_type = ifelse(has_type,1,0)) %>%
+  filter(!is.na(value)) %>%
+  select(rowcode = value,
+         has_type)
+
+
+export(lkp_types,'questionnaires/categories/lkp_improvement_types.txt', sep = "\t" )
+
+#look up table whether improvement has custom categories =======================
+#' Some improvements do not have a custom level
+#' For those, we use the general category
+lkp_levels <- cat_improvements %>%
+  #identify those that do not have a custom level
+  mutate(has_level = value %in% unique(cat_levels$improvement_code),
+         has_level = ifelse(has_level,1,0)) %>%
+  filter(!is.na(value)) %>%
+  select(rowcode = value,
+         has_level)
+
+export(lkp_levels,'questionnaires/categories/lkp_improvement_levels.txt', sep = "\t" )
 
 
 #look up table FOAs of improvement =============================================

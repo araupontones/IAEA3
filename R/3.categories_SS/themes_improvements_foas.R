@@ -2,6 +2,7 @@ library(googlesheets4)
 library(dplyr)
 library(rio)
 library(tidyr)
+library(stringr)
 
 url_gs <- 'https://docs.google.com/spreadsheets/d/15SY9gpr5ELo0dLRYZNjqzNzOKbF8JYtkI42eBIZDe68/edit#gid=597634711'
 
@@ -22,14 +23,17 @@ export(cat_themes,'questionnaires/categories/themes.xlsx', sheetName = "Categori
 #' Generate a list of the improvements  
 
 raw_improvements <- read_sheet(url_gs, "improvements") 
-
+names(raw_improvements)
 cat_improvements <- raw_improvements %>%
+  #drop rows used for comments in sheet
+  dplyr::filter(!str_detect(improvement_code, "Q"),
+                improvement_code != "NULL") %>%
   group_by(Improvement) %>%
   slice(1) %>%
   ungroup() %>%
   select(title = Improvement,
          value = improvement_code) %>%
-  arrange(value)
+  arrange(as.numeric(value))
 
 
 

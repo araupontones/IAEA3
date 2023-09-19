@@ -18,7 +18,7 @@ export(countries, 'questionnaires/categories/countries.xlsx', overwrite = T)
 
 
 cps <- sample %>%
-  select(title = Name,
+  select(title = cp_id,
          value = cp_id,
          parentvalue = country_id) %>%
   mutate(attachmentname = "")

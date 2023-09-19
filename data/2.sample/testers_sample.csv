@@ -1,0 +1,12 @@
+Name,Country_name,country_id,cp_id,email,region,director,tester
+"YAMAMOTO, Mayumi",Albania,002,002060,M.Yamamoto@iaea.org,Europe,Ms Eve-Kulli Kala,TRUE
+"LECHNER, Katharina",Algeria,003,003075,K.Lechner@iaea.org,Africa,Mr Shaukat Abdulrazak,TRUE
+"De VILLALOBOS, Eloisa",Argentina,006,006060,e.de-villalobos@iaea.org,Latin America and the Caribbean,Mr Luis Carlos Longoria Gandara,TRUE
+"LI, Lin",China,033,033055,L.Li@iaea.org,Asia and the Pacific,Ms Jane Gerardo-Abaya,TRUE
+"LORETI, Giorgia",Italy,073,073006,g.loreti@iaea.org,Europe,Ms Eve-Kulli Kala,TRUE
+"GRIGORYAN, Anna",Japan,075,075004,A.Grigoryan@iaea.org,Asia and the Pacific,Ms Jane Gerardo-Abaya,TRUE
+"ARAU, Andres",Mexico,098,098009,andres.arau@pulpodata.org,Latin America and the Caribbean,Mr Luis Carlos Longoria Gandara,TRUE
+"CIURANA CASADEMONT, Eva",North Macedonia,111,111007,E.Ciurana@iaea.org,Europe,Ms Eve-Kulli Kala,TRUE
+"MALEK, Massoud",Qatar,122,122070,M.Malek@iaea.org,Asia and the Pacific,Ms Jane Gerardo-Abaya,TRUE
+"MURILLO FUENTES, Maria Del Pilar",Spain,139,139009,m.d.p.murillo-fuentes@iaea.org,Europe,Ms Eve-Kulli Kala,TRUE
+"KRAUSE, Martin",United Republic of Tanzania,156,156042,Ma.Krause@iaea.org,Africa,Mr Shaukat Abdulrazak,TRUE

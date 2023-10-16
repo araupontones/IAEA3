@@ -32,8 +32,8 @@ questionnaires <- lookUp_qns$questionnaire
 #countries <- lookUp_countries$country[-which(is.na(lookUp_countries$country))]
 countries <- lookUp_countries$country
 
+#countries <- "Russian"
 countries
-
 #Download template from designer ---------------------------------------------
 downloaded_templates <- download_templates(
   x = "CP",

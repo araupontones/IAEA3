@@ -67,7 +67,7 @@ download_gsheets <- function(country,
   #read each questionnaire
   translations <- lapply(questionnaires, function(q){
     if(!is.na(ss)){
-      
+      Sys.sleep(5)
       googlesheets4::read_sheet(ss = ss, sheet = q)
       
     }
@@ -268,7 +268,7 @@ join_templates_gsheet <- function(qn,
     #jgc()
     googlesheets4::write_sheet(template_ghseet, ss = ss, sheet = qn)
     
-    #Sys.sleep(5)
+    Sys.sleep(5)
     
     #save template to import back into survey solutions
     language <- lookUP$language[lookUP$country == c][1]

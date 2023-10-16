@@ -29,7 +29,6 @@ country_codes <- import('data/1.reference/Copy of Country_Names_2023_06_12.xlsx'
 sort(unique(country_codes$Nationality))
 
 
-
 # create ids -------------------------------------------------------------------
 cps_ids <- df_complete %>%
   filter(!Nationality %in% c("SOI", "KIR")) %>%
@@ -37,7 +36,7 @@ cps_ids <- df_complete %>%
   slice(1) %>%
   ungroup() %>%
   left_join(country_codes) %>%
-  select(Name, Country_name, Nationality, EMail, region,director, tester) %>%
+  select(Name, Country_name, Nationality, EMail, region,director, tester, keep_sample) %>%
   group_by(Country_name) %>%
   mutate(country_id = cur_group_id(),
          country_id = case_when(country_id < 10 ~ paste0("00", country_id),
@@ -58,9 +57,13 @@ cps_ids <- df_complete %>%
          
   ) %>%
   ungroup() %>%
-  select(Name, Country_name, country_id, cp_id, email = EMail, region, director, tester) %>%
+  select(Name, Country_name, country_id, cp_id, email = EMail, region, director, tester, keep_sample) %>%
   #drop North American CPs
-  filter(region != "North America")
+  filter(region != "North America") %>%
+  mutate(Country_name = ifelse(Country_name == "T.T.U.T.J of T. Palestinian A.", "State of Palestine", Country_name)) %>%
+  #from the testers, only keep the one I want (in internal_testers.xlsx)
+  dplyr::filter(keep_sample | is.na(keep_sample)) %>%
+  select(-keep_sample)
 
 
 

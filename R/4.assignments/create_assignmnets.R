@@ -3,7 +3,7 @@ library(dplyr)
 library(rio)
 
 assignment <- import("data/2.sample/cps_sample.csv") %>%
-  filter(tester) %>%
+  #filter(tester) %>%
   select(country = country_id,
          counterpart = cp_id) %>%
   mutate(`_quantity` = -1,
@@ -13,6 +13,6 @@ assignment <- import("data/2.sample/cps_sample.csv") %>%
          )
 
 
-export(assignment,'questionnaires/assignments/testers.txt' )
+export(assignment,'questionnaires/assignments/cps.txt' )
 
 

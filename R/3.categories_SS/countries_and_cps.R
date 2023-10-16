@@ -1,6 +1,9 @@
 #create categories for countries and cps
 #This files are used in Survey Solutions as IDs
-sample <-rio::import("data/2.sample/cps_sample.csv")
+library(dplyr)
+library(rio)
+
+sample <-rio::import("data/2.sample/cps_sample.csv", encoding = "UTF-8")
 names(sample)
 
 countries <- sample %>%
@@ -10,7 +13,10 @@ countries <- sample %>%
   slice(1) %>%
   ungroup() %>%
   mutate(parentvalue = "",
-         attachmentname = "")
+         attachmentname = "",
+         title = ifelse(title == "T.T.U.T.J of T. Palestinian A.", "State of Palestine", title)
+         ) 
+
 
 
 

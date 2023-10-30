@@ -7,14 +7,16 @@ library(stringr)
 library(lubridate)
 library(rio)
 library(janitor)
+library(susor)
 
 #dfine parameters --------------------------------------------------------------
 #sample_girls<- rio::import(survey_girls_sample_path)
 questionnaire <- "cp"
-sample_file <- 'data/2.sample/cps_sample.csv'
+sample_file <- 'data/2.sample/cps_sample_corrected.csv'
 sample <- import(sample_file)
-
-
+bounces <- import('data/4.campaigns/bounces_Oct_16_2023.csv') %>%
+  select(email =`Email Address`,
+         bounce = `Bounce Type`)
 
 
 
@@ -75,8 +77,8 @@ raw_no_dupes<- raw_data %>%
   filter(na_count == min(na_count)) %>%
   filter(n_questions_unanswered == min(n_questions_unanswered)) %>%
   filter(row_number() == 1) %>%
-  ungroup()
-
+  ungroup() %>%
+  relocate(counterpart, na_count, n_questions_unanswered, interview__status)
 
 
 #count number of  duplicates
@@ -85,13 +87,22 @@ dupes <- get_dupes(raw_no_dupes, counterpart)
 #join with sample
 raw_with_sample <- raw_no_dupes %>%
   right_join(sample, by = c('counterpart' = 'cp_id')) %>%
-  mutate(across(c(interview__status), function(x)susor_get_stata_labels(x))) %>%
-  mutate(interview__status = case_when(is.na(interview__status) ~ "Not Started",
+  mutate(across(c(interview__status, country), function(x)susor_get_stata_labels(x))) %>%
+  left_join(bounces) %>%
+  mutate(interview__status = case_when(!is.na(bounce) ~ "Bounced",
+                                       is.na(interview__status) ~ "Not Started",
+                                       #cases when user did not "completed the interview"
+                                       interview__status == "InterviewerAssigned" & 
+                                         na_count <= 70 & 
+                                         n_questions_unanswered <=3 ~ "Submitted",
                                        interview__status == "InterviewerAssigned" ~ "Responding",
                                        interview__status == "Completed" ~ "Submitted"
   ))
 
 
+tabyl(raw_with_sample, interview__status)
+
 #export raw data
+
 export(raw_with_sample, file.path(susor_dir_raw, questionnaire, 'cp.rds'))
 

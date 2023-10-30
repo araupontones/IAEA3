@@ -1,0 +1,1569 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<codeBook version="1.2.2" ID="QIDANDREV" xml-lang="en" xmlns="http://www.icpsr.umich.edu/DDI" xsi:SchemaLocation="http://www.icpsr.umich.edu/DDI http://www.icpsr.umich.edu/DDI/Version1-2-2.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <docDscr>
+    <citation>
+      <titlStmt>
+        <titl>CP Survey</titl>
+      </titlStmt>
+      <prodStmt>
+        <copyright>
+        </copyright>
+        <software version="1.0.0" date="2015-07-08">StatDDI</software>
+      </prodStmt>
+    </citation>
+    <notes>
+    </notes>
+  </docDscr>
+  <stdyDscr>
+    <citation>
+      <titlStmt>
+        <titl>CP Survey</titl>
+        <IDNO>QUEST</IDNO>
+      </titlStmt>
+      <prodStmt>
+        <software version="1.0.0" date="2015-07-08">StatDDI</software>
+      </prodStmt>
+    </citation>
+  </stdyDscr>
+  <dataDscr>
+    <var ID="V1" name="interview__id" files="F1" intrvl="discrete">
+      <location width="255" RecSegNo="1" />
+      <labl><![CDATA[Unique 32-character long identifier of the interview]]></labl>
+      <qstn />
+      <varFormat type="character" schema="other" />
+    </var>
+    <var ID="V2" name="interview__key" files="F1" intrvl="discrete">
+      <location width="255" RecSegNo="1" />
+      <labl><![CDATA[Interview key (identifier in XX-XX-XX-XX format)]]></labl>
+      <qstn />
+      <varFormat type="character" schema="other" />
+    </var>
+    <var ID="V3" name="assignment__id" files="F1" intrvl="discrete">
+      <location width="255" RecSegNo="1" />
+      <labl><![CDATA[Assignment id (identifier in numeric format)]]></labl>
+      <qstn />
+      <varFormat type="character" schema="other" />
+    </var>
+    <var ID="V4" name="sssys_irnd" files="F1" intrvl="discrete">
+      <location width="255" RecSegNo="1" />
+      <labl><![CDATA[Random number in the range 0..1 associated with interview]]></labl>
+      <qstn />
+      <varFormat type="character" schema="other" />
+    </var>
+    <var ID="V5" name="has__errors" files="F1" intrvl="discrete">
+      <location width="255" RecSegNo="1" />
+      <labl><![CDATA[Errors count in the interview]]></labl>
+      <qstn />
+      <varFormat type="character" schema="other" />
+    </var>
+    <var ID="V6" name="interview__status" files="F1" intrvl="discrete">
+      <location width="255" RecSegNo="1" />
+      <labl><![CDATA[Status of the interview]]></labl>
+      <qstn />
+      <varFormat type="character" schema="other" />
+    </var>
+    <var ID="V7" name="country" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Country]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Thank you for participating!  Please provide information about your views on the achievements of the TCP during the 21st century in:]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V8" name="cp_hidden" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[name of counterpart]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Click the blue button below to continue.Remember that none of your answers can be associated with you nor your institution.The system created an automatic ID to be able to manage the data effectively. Generated ID:]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V9" name="counterpart" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[name of counterpart]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Name of counterpart]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V10" name="theme" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[supported_areas]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In which THEMATIC AREA have you PRIMARILY been involved through the TCP in %country%?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V11" name="improvement__11" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Crops with increased productivity and/or climate resilience properties]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V12" name="improvement__12" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Sustainable animal production/livestock productivity]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V13" name="improvement__13" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Food safety and quality control]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V14" name="improvement__14" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Detection and control of major insect pests of Agricultural and Veterinary importance]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V15" name="improvement__15" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Sustainable, soil and water management practices for agriculture]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V16" name="improvement__21" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Quality and effective diagnostic imaging and treatment in cancer and other NCDs]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V17" name="improvement__22" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Production and use of safe radioisotopes and radiopharmaceuticals for medical applications]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V18" name="improvement__23" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Detection and control of major insect pests including zoonotic diseases affecting Human health]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V19" name="improvement__24" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Effective evidenced-based nutrition programming]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V20" name="improvement__31" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Energy planning and inform policies to meet future energy needs]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V21" name="improvement__33" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Safe and sustainable introduction, operation, and lifetime management of nuclear power plant/ nuclear fuel cycle]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V22" name="improvement__41" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Efficiency, productivity, quality, and safety across industries, using nuclear technologies]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V23" name="improvement__42" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Safe and effective utilization, operation, and maintenance of research reactors]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V24" name="improvement__43" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Reliable and comparable measurement of results obtained by radioisotopes techniques and safe use of nuclear instrumentation]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V25" name="improvement__51" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Sustainable water resources management]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V26" name="improvement__52" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Effective assessment of pollution in land, air, coastal ecosystems, and the oceans, including from plastics]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V27" name="improvement__61" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Governmental and regulatory infrastructure to ensure nuclear and radiation safety]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V28" name="improvement__62" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Radiation protection of workers, patients, public and environment.]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V29" name="improvement__63" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Nuclear installations and fuel cycle facilities safety]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V30" name="improvement__64" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Safe use, storage and transport, of nuclear and radioactive materials.]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V31" name="improvement__65" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Effective emergency preparedness &amp; response]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V32" name="improvement__66" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Improvements:Effective radioactive waste management, decommissioning and remediation of contaminated sites.]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Please select a maximum of two AREAS in which you were involved with respect to the TCP support in %country%.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V33" name="imp_opinion__11" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?:Increase Agricultural productivity]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V34" name="imp_opinion__12" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?:Increase Livestock productivity]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V35" name="imp_opinion__13" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?:Improve food safety and quality]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V36" name="imp_opinion__21" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?:Improve existing health services for diagnosis and treatment of cancer and other NCDs]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V37" name="imp_opinion__22" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?:Expand Healthcare Services for cancer treatment and other NCDs]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V38" name="imp_opinion__23" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?:Improve effective diagnosis and treatment of infectious diseases]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V39" name="imp_opinion__24" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?:Improve effectiveness of nutrition programmes interventions and practices]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V40" name="imp_opinion__31" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?:Improve energy planning to meet future energy needs]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V41" name="imp_opinion__32" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?:Support advanced energy production and safe introduction/operation of nuclear power/nuclear fuel cycle in the energy mix]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V42" name="imp_opinion__41" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?:Improve efficiency, safety and quality of industrial process]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V43" name="imp_opinion__42" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?:Improve quality, reliability and compatibility of measurements results]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V44" name="imp_opinion__43" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?:Improve research and innovation in industrial practices]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V45" name="imp_opinion__51" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?:Reduction in contaminant concentration and increase in quality of drinking water]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V46" name="imp_opinion__52" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?:Improved quality of freshwater systems]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V47" name="imp_opinion__53" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?:Assess impact of pollution in land-air, costal ecosystems and oceans]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V48" name="imp_opinion__54" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?:Monitor effectiveness of remedial action in cobating land, air, costal ecosystems and ocean pollution]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V49" name="imp_opinion__61" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?:Strong and sustainable nuclear and radiation safety framework]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V50" name="imp_opinion__62" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?:Effective radiation protection on the use of ionizing radiation in energy production, medicine, industry and research]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, which of the following long term impacts resulted from the support given by the TCP-IAEA on the thematic area %theme% in %country%?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V51" name="impact__111" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:National agricultural programme promoted IAEA-supported mutated seeds]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V52" name="impact__112" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:National agricultural programme promoted IAEA-supported sustainable soil and water management practices]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V53" name="impact__113" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:National agricultural programme adopted pest control practices promoted by IAEA]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V54" name="impact__114" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Reduced post-harvest losses in food production with the application of irradiation technology]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V55" name="impact__121" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:National livestock programme promoted IAEA supported breeding practices]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V56" name="impact__122" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:National livestock programme promoted IAEA supported mutated forrage/grasses]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V57" name="impact__123" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:National livestock programme adopted veterinary pest control practices promoted by IAEA]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V58" name="impact__132" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Effective and efficient food traceability, authenticity and contaminant control systems]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V59" name="impact__133" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:A wider range of food products gained access to international market as a result of improved laboratory testing and establishment of surveillance programmes]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V60" name="impact__211" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:IAEA support contributed to improved quality of national radiotherapy services]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V61" name="impact__212" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:National integrated cancer control planning strategies supported by IAEA contributed to improve the quality of health services in the country]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V62" name="impact__213" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:IAEA support contributed to improved quality of national diagnostic imaging and nuclear medicine services]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V63" name="impact__214" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Quality assurance procedures and services supported by IAEA, including dosimetry, contributed to improve quality of health services in the country]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V64" name="impact__215" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Increased competencies of healthcare professionals through IAEA capacity building contributed to enahncing quality and effectiveness of national radiation medicine services]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V65" name="impact__221" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Increased number of radiotherapy services for cancer treatement supported by the IAEA]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V66" name="impact__222" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:National integrated cancer control planning strategies supported by IAEA contributed to expand radiotherapy services in the country]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V67" name="impact__223" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:National integrated cancer control planning strategies supported by IAEA contributed to expand imaging services in the country]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V68" name="impact__224" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:National integrated cancer control planning strategies supported by IAEA contributed to favour sustainability of cancer treatment and NCDs services]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V69" name="impact__225" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:National integrated cancer control planning strategies supported by IAEA contributed to increase patient access to radiotherapy services]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V70" name="impact__231" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Improved diagnosis capacities and methods for detection of HIV/AIDS, tuberculosis and Malaria through the use of medical isotopes/radioisotopes/radiopharmaceutical supported by IAEA.]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V71" name="impact__232" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Increased understanding of new drug treatments effectiveness  for infectious diseases (HIV/AIDS, tuberculosis, malaria) through the use of medical isotopes/radioisotopes/radiopharmaceutical supported by IAEA]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V72" name="impact__233" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Improved preparedness, control &amp; response for vector-borne and zoonotic diseases (Corona, Dengue/Zika/avian influenza, malaria, etc.)]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V73" name="impact__241" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Increased understanding of nutritional projects' impact using isotopic techniques supported by the IAEA.]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V74" name="impact__242" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Reduced  incidence of nutritional-based diseases.]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V75" name="impact__243" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Malnutrition alleviated (especially for women,children) as a result of the use of Stable Isotope Techniques.]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V76" name="impact__311" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Application of energy planning tools with the support of  IAEA in the desicion-making on energy infrastructure]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V77" name="impact__312" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Establishment of energy information systems to inform decisions in energy infrastructure]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V78" name="impact__313" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:National energy plans or integrated resource plans under implementation]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V79" name="impact__321" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Contribution to successful establishement and management of the NPP]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V80" name="impact__322" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Support to the feasibility study needed for the introduction of NPPs]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V81" name="impact__323" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Contribution to the generation of information and reports for the efficient operation of the NPP]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V82" name="impact__324" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Support to the increased knowledge on SMRs in the country]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V83" name="impact__325" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Contribution to the improved management of nuclear fuel cycle]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V84" name="impact__411" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Increase efficiency of industrial process]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V85" name="impact__412" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Increase equality and efficiency of industrial materials]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V86" name="impact__413" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Clean and safer industrial process]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V87" name="impact__421" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Improve understanding of preservation of cultural heritage/artefacts]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V88" name="impact__422" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Calibration and maintenance of nuclear instrumentation for monitoring and quality control systems]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V89" name="impact__431" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Successful planning/establishment of research reactor]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V90" name="impact__432" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Safe and effective utilization, operation, and maintenance of research reactor]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V91" name="impact__433" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Successful planning/establishment of accelerator facility]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V92" name="impact__434" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Safe and effective  operation, maintenance ,and upgrade of accelerator facility]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V93" name="impact__511" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Water resource management strategies select water sources based on results of water diagnostics and testing, using isotope hydrology techniques supported by IAEA.]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V94" name="impact__512" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Water maps and analysis developed using isotope hydrology techniques supported by IAEA, used to generate plans for site remediation or selection of water sources.]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V95" name="impact__521" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Integrated water management plans and actions consider freashwater aquifers and basins characteristics, through the use of isotope hydrology techniques supported by IAEA]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V96" name="impact__522" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Transbondary cooperation agreements are informed by the increased understading of freashwater aquifers and basins characteristics, using isotope hydrology techniques supported by IAEA]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V97" name="impact__523" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Water mappings and databased (such as vulnerability maps, water balance models etc,)  been used in site remediation, water sourcing management and control plan activities]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V98" name="impact__531" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Reliable scientific data on impact of ocean acidification/costal ecosystem vulnerability]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V99" name="impact__532" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Reliable scientific data on impact of microplastic in the ocean and its ecosystem]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V100" name="impact__533" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Ability to produce data on pollutants and sediments studies]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V101" name="impact__534" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Environmental regulations informed by data on pollutants/ negative effect of sediments]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V102" name="impact__541" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Data on hab and toxins generated]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V103" name="impact__542" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Monitoring global networks on ocean acidifications]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V104" name="impact__543" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Monitoring global networks on ocean plastic pollution]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V105" name="impact__544" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Strategies and actions plan to combats land-air pollutants]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V106" name="impact__611" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Effective and sustainable regulatory infrasturacture /management system in line with IAEA Safety Standards and Guidances]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V107" name="impact__612" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Improved safety performance of nuclear installations and fuel cycle facilities through advisory services (including peer review, expert mission, deterministic safety assessment and probabilistic safety assessment, etc. ) offered by the IAEA]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V108" name="impact__613" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Safe and secure handling of nuclear and radioactive materials]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V109" name="impact__614" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Radioactive Waste under safe and secure storage/treatment/disposal]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V110" name="impact__615" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Severe Accident Guidelines/Mitigation Alternatives programs and Emergency Preparedness and Response infrastructure in place]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V111" name="impact__621" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Engaged in National radiation monitoring and surveillance network]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V112" name="impact__622" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:National Diagnostic Reference Levels/Radiation protection programmes for patients implemented]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V113" name="impact__623" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Laboratories monitoring occupational radiation exposure / occupational radiation protection systems established/strengthened]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V114" name="impact__624" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Action plan developed for occupational radation protection/public exposure protection]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V115" name="impact__625" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?:Systems for monitoring and managing radiation exposure (radon, NORM, legacy remediation, consumer products, commodities, etc.)established]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[TO THE BEST OF YOUR KNOWLEDGE, did any of the following impacts occurred as a result of the support given by the TCP-IAEA?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V116" name="participated" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Has your institution participated in any activities organized within a Regional Project?]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Has your institution participated in any activities organized within a Regional Project?]]></qstnLit>
+      </qstn>
+      <catgry>
+        <catValu>1</catValu>
+        <labl><![CDATA[Yes]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>0</catValu>
+        <labl><![CDATA[No]]></labl>
+      </catgry>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V117" name="value__1" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[value added:Trainings / continuous professional development]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, what has been the added value brought by participating in activities organized within the framework of a Regional Project?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V118" name="value__2" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[value added:Sharing regional expertise (as provider)]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, what has been the added value brought by participating in activities organized within the framework of a Regional Project?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V119" name="value__3" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[value added:Strengthening technical capacities (as receiver of regional activities)]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, what has been the added value brought by participating in activities organized within the framework of a Regional Project?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V120" name="value__4" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[value added:Access to regional institution/ Laboratory/Education Centres]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, what has been the added value brought by participating in activities organized within the framework of a Regional Project?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V121" name="value__5" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[value added:Access to Data/ Global Networks]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, what has been the added value brought by participating in activities organized within the framework of a Regional Project?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V122" name="value__6" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[value added:Harmonization of profession(s) at the regional level]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, what has been the added value brought by participating in activities organized within the framework of a Regional Project?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V123" name="value__7" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[value added:National actions originated from interaction with regional counterparts]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, what has been the added value brought by participating in activities organized within the framework of a Regional Project?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V124" name="value__8" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[value added:Regional harmonization &amp; implementation of curricula/protocols/guidelines]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, what has been the added value brought by participating in activities organized within the framework of a Regional Project?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V125" name="value__98" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[value added:I have not participated in a regional project yet]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, what has been the added value brought by participating in activities organized within the framework of a Regional Project?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V126" name="word" files="F1" intrvl="discrete">
+      <location width="255" RecSegNo="1" />
+      <labl><![CDATA[In one word, how would you define the support given by the TCP to your institution?]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In one word, how would you define the support given by the TCP to your institution?]]></qstnLit>
+      </qstn>
+      <varFormat type="character" schema="other" />
+    </var>
+    <var ID="V127" name="future__1" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, what are the aspects that may help ensuring sustainability of the achievements reached with IAEA TCP support? 
+
+
+Please RANK your 3 priority technical support needed.:Trained staff remain in the institution]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, what are the aspects that may help ensuring sustainability of the achievements reached with IAEA TCP support? 
+
+
+Please RANK your 3 priority technical support needed.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V128" name="future__2" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, what are the aspects that may help ensuring sustainability of the achievements reached with IAEA TCP support? 
+
+
+Please RANK your 3 priority technical support needed.:Trained staff applying knowledge acquired]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, what are the aspects that may help ensuring sustainability of the achievements reached with IAEA TCP support? 
+
+
+Please RANK your 3 priority technical support needed.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V129" name="future__3" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, what are the aspects that may help ensuring sustainability of the achievements reached with IAEA TCP support? 
+
+
+Please RANK your 3 priority technical support needed.:Equipment properly maintained]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, what are the aspects that may help ensuring sustainability of the achievements reached with IAEA TCP support? 
+
+
+Please RANK your 3 priority technical support needed.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V130" name="future__4" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, what are the aspects that may help ensuring sustainability of the achievements reached with IAEA TCP support? 
+
+
+Please RANK your 3 priority technical support needed.:Appropriate operational funding]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, what are the aspects that may help ensuring sustainability of the achievements reached with IAEA TCP support? 
+
+
+Please RANK your 3 priority technical support needed.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V131" name="future__5" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, what are the aspects that may help ensuring sustainability of the achievements reached with IAEA TCP support? 
+
+
+Please RANK your 3 priority technical support needed.:Technology relevant to country priorities]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, what are the aspects that may help ensuring sustainability of the achievements reached with IAEA TCP support? 
+
+
+Please RANK your 3 priority technical support needed.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V132" name="future__98" files="F1" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, what are the aspects that may help ensuring sustainability of the achievements reached with IAEA TCP support? 
+
+
+Please RANK your 3 priority technical support needed.:Others]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, what are the aspects that may help ensuring sustainability of the achievements reached with IAEA TCP support? 
+
+
+Please RANK your 3 priority technical support needed.]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V133" name="foas__id" files="F2" intrvl="discrete">
+      <location width="255" RecSegNo="1" />
+      <labl><![CDATA[Id in foas]]></labl>
+      <qstn />
+      <varFormat type="character" schema="other" />
+    </var>
+    <var ID="V134" name="interview__key" files="F2" intrvl="discrete">
+      <location width="255" RecSegNo="1" />
+      <labl><![CDATA[Interview key (identifier in XX-XX-XX-XX format)]]></labl>
+      <qstn />
+      <varFormat type="character" schema="other" />
+    </var>
+    <var ID="V135" name="year_start" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[year_started]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Regarding %foas%:
+
+In which YEAR did your instition first collaborate with the TCP?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V136" name="dev_2000" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Level of development in 2000]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Status of development when your institution collaborated with the TCP in %year_start%]]></qstnLit>
+      </qstn>
+      <catgry>
+        <catValu>1</catValu>
+        <labl><![CDATA[No capacity]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>2</catValu>
+        <labl><![CDATA[EARLY STAGE of the services/procedure/programmes]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>3</catValu>
+        <labl><![CDATA[Services/procedure/programme OPERATIONAL]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>4</catValu>
+        <labl><![CDATA[Services/procedure/programme undergoing EXPANSION]]></labl>
+      </catgry>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V137" name="dev_2023" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Level of develoment in 2023]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Status of development at the moment (2023)]]></qstnLit>
+      </qstn>
+      <catgry>
+        <catValu>1</catValu>
+        <labl><![CDATA[No capacity]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>2</catValu>
+        <labl><![CDATA[EARLY STAGE of the services/procedure/programmes]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>3</catValu>
+        <labl><![CDATA[Services/procedure/programme OPERATIONAL]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>4</catValu>
+        <labl><![CDATA[Services/procedure/programme undergoing EXPANSION]]></labl>
+      </catgry>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V138" name="dev_reason" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[You mentioned that the status of development in %year_start% was %dev_2000% and that this status has shrinked to %dev_2023% in 2023.
+
+
+In your opinion which are the reasons that best explain the shrink of the level of development?]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[You mentioned that the status of development in %year_start% was %dev_2000% and that this status has shrinked to %dev_2023% in 2023.
+
+
+In your opinion which are the reasons that best explain the shrink of the level of development?]]></qstnLit>
+      </qstn>
+      <catgry>
+        <catValu>1</catValu>
+        <labl><![CDATA[There is no staff left to operate equipment]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>2</catValu>
+        <labl><![CDATA[There is no staff to implement technology]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>3</catValu>
+        <labl><![CDATA[Lack of maintenance of equipment]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>4</catValu>
+        <labl><![CDATA[Lack of funding for operational inputs]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>5</catValu>
+        <labl><![CDATA[Research priorities shifted]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>6</catValu>
+        <labl><![CDATA[Unsuccessful results in technology application]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>7</catValu>
+        <labl><![CDATA[Lack of TCP support]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>96</catValu>
+        <labl><![CDATA[Other]]></labl>
+      </catgry>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V139" name="tcp_contribution" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[In your opinion, has the TCP contributed to the status of development achieved of %foas% in 2023?]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, has the TCP contributed to the status of development achieved of %foas% in 2023?]]></qstnLit>
+      </qstn>
+      <catgry>
+        <catValu>1</catValu>
+        <labl><![CDATA[The TCP has not contributed to the development]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>2</catValu>
+        <labl><![CDATA[The TCP contributed to the development to some extent]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>3</catValu>
+        <labl><![CDATA[The TCP has contributed substantially to reach the present level of development]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>4</catValu>
+        <labl><![CDATA[The development would have been not possible without the support from the IAEA]]></labl>
+      </catgry>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V140" name="type" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[As a result of the TCP support on %foas%, your institution has:]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[As a result of the TCP support on %foas%, your institution has:]]></qstnLit>
+      </qstn>
+      <catgry>
+        <catValu>1</catValu>
+        <labl><![CDATA[Reached initial capacities]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>2</catValu>
+        <labl><![CDATA[Reached mastery of the services/procedure/programmes]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>3</catValu>
+        <labl><![CDATA[Became leader nationally (e.g. provides training nationally) with respect to services/procedure/programme]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>4</catValu>
+        <labl><![CDATA[Became leader regionally (e.g. provides training regionally) with respect to services/procedure/programme]]></labl>
+      </catgry>
+      <catgry>
+        <catValu>98</catValu>
+        <labl><![CDATA[Has remained the same as before the TCP support]]></labl>
+      </catgry>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V141" name="mechanism__1" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Based on your knowledge, HOW did the TCP contribute to %dev_2023% of %foas%?:Improve quality of procedure/service/programme]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Based on your knowledge, HOW did the TCP contribute to %dev_2023% of %foas%?]]></qstnLit>
+        <ivuInstr><![CDATA[Select all that apply]]></ivuInstr>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V142" name="mechanism__2" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Based on your knowledge, HOW did the TCP contribute to %dev_2023% of %foas%?:Support professionalization to enhance quality of procedure/service/programme]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Based on your knowledge, HOW did the TCP contribute to %dev_2023% of %foas%?]]></qstnLit>
+        <ivuInstr><![CDATA[Select all that apply]]></ivuInstr>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V143" name="mechanism__3" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Based on your knowledge, HOW did the TCP contribute to %dev_2023% of %foas%?:Introduce new technologies/ provide new service]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Based on your knowledge, HOW did the TCP contribute to %dev_2023% of %foas%?]]></qstnLit>
+        <ivuInstr><![CDATA[Select all that apply]]></ivuInstr>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V144" name="mechanism__4" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Based on your knowledge, HOW did the TCP contribute to %dev_2023% of %foas%?:Develop new protocols/ technical guidelines]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Based on your knowledge, HOW did the TCP contribute to %dev_2023% of %foas%?]]></qstnLit>
+        <ivuInstr><![CDATA[Select all that apply]]></ivuInstr>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V145" name="mechanism__5" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Based on your knowledge, HOW did the TCP contribute to %dev_2023% of %foas%?:Develop regulatory frameworks]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Based on your knowledge, HOW did the TCP contribute to %dev_2023% of %foas%?]]></qstnLit>
+        <ivuInstr><![CDATA[Select all that apply]]></ivuInstr>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V146" name="mechanism__6" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Based on your knowledge, HOW did the TCP contribute to %dev_2023% of %foas%?:Upgrade infrasctructure of institution / Laboratories/ Educational centres]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Based on your knowledge, HOW did the TCP contribute to %dev_2023% of %foas%?]]></qstnLit>
+        <ivuInstr><![CDATA[Select all that apply]]></ivuInstr>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V147" name="mechanism__7" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Based on your knowledge, HOW did the TCP contribute to %dev_2023% of %foas%?:Establish curricula in new profession]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Based on your knowledge, HOW did the TCP contribute to %dev_2023% of %foas%?]]></qstnLit>
+        <ivuInstr><![CDATA[Select all that apply]]></ivuInstr>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V148" name="mechanism__8" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Based on your knowledge, HOW did the TCP contribute to %dev_2023% of %foas%?:Produce new data /increase understanding]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[Based on your knowledge, HOW did the TCP contribute to %dev_2023% of %foas%?]]></qstnLit>
+        <ivuInstr><![CDATA[Select all that apply]]></ivuInstr>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V149" name="sustain__11" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Support transformed into:Standardization and procedures in alignment with international best practices applied]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, has the support of the TCP consolidated into any of the following?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V150" name="sustain__21" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Support transformed into:Development of national or regional education programmes]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, has the support of the TCP consolidated into any of the following?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V151" name="sustain__31" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Support transformed into:Increased use of a new technology/tool or technique in a specific sector]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, has the support of the TCP consolidated into any of the following?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V152" name="sustain__32" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Support transformed into:National programmes promoting new technology]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, has the support of the TCP consolidated into any of the following?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V153" name="sustain__33" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Support transformed into:Creation of new Institution/ Laboratory/Education Centres]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, has the support of the TCP consolidated into any of the following?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V154" name="sustain__41" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Support transformed into:Improve Technical Standards in a specific sector/entities]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, has the support of the TCP consolidated into any of the following?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V155" name="sustain__42" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Support transformed into:Improve Quality of services in a specific sector/entities]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, has the support of the TCP consolidated into any of the following?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V156" name="sustain__51" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Support transformed into:Delivery of regulatory activities in line with adopted safety standards and regulatory compliance requirements]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, has the support of the TCP consolidated into any of the following?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V157" name="sustain__52" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Support transformed into:Safety and security issues are given high priority in decision-making.]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, has the support of the TCP consolidated into any of the following?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V158" name="sustain__61" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Support transformed into:New profession recognized/ More professionals in the workforce]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, has the support of the TCP consolidated into any of the following?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V159" name="sustain__81" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Support transformed into:Use of Data to inform policies/regulatory bodies.]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, has the support of the TCP consolidated into any of the following?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V160" name="sustain__82" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Support transformed into:Join Global data Networks/ inform Global Data Networks]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, has the support of the TCP consolidated into any of the following?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V161" name="sustain__98" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[Support transformed into:The support has not been consolidated yet]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[In your opinion, has the support of the TCP consolidated into any of the following?]]></qstnLit>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V162" name="effectiveness__1" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[What has been the most effective input given by the TCP to support %foas% in your institution?:IAEA guidelines and/or codes of practice have been implemented or adopted]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[What has been the most effective input given by the TCP to support %foas% in your institution?]]></qstnLit>
+        <ivuInstr><![CDATA[Select all that apply]]></ivuInstr>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V163" name="effectiveness__2" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[What has been the most effective input given by the TCP to support %foas% in your institution?:Equipment and related training]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[What has been the most effective input given by the TCP to support %foas% in your institution?]]></qstnLit>
+        <ivuInstr><![CDATA[Select all that apply]]></ivuInstr>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V164" name="effectiveness__3" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[What has been the most effective input given by the TCP to support %foas% in your institution?:Participation in national trainng]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[What has been the most effective input given by the TCP to support %foas% in your institution?]]></qstnLit>
+        <ivuInstr><![CDATA[Select all that apply]]></ivuInstr>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V165" name="effectiveness__4" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[What has been the most effective input given by the TCP to support %foas% in your institution?:Participation in regional trainng]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[What has been the most effective input given by the TCP to support %foas% in your institution?]]></qstnLit>
+        <ivuInstr><![CDATA[Select all that apply]]></ivuInstr>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V166" name="effectiveness__5" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[What has been the most effective input given by the TCP to support %foas% in your institution?:Establishment of procedures and best practices]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[What has been the most effective input given by the TCP to support %foas% in your institution?]]></qstnLit>
+        <ivuInstr><![CDATA[Select all that apply]]></ivuInstr>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V167" name="effectiveness__6" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[What has been the most effective input given by the TCP to support %foas% in your institution?:Establishment of new services/new technologies]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[What has been the most effective input given by the TCP to support %foas% in your institution?]]></qstnLit>
+        <ivuInstr><![CDATA[Select all that apply]]></ivuInstr>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V168" name="effectiveness__7" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[What has been the most effective input given by the TCP to support %foas% in your institution?:Development and or access to databases]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[What has been the most effective input given by the TCP to support %foas% in your institution?]]></qstnLit>
+        <ivuInstr><![CDATA[Select all that apply]]></ivuInstr>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V169" name="effectiveness__8" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[What has been the most effective input given by the TCP to support %foas% in your institution?:Development of protocols and or national/regional guidelines]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[What has been the most effective input given by the TCP to support %foas% in your institution?]]></qstnLit>
+        <ivuInstr><![CDATA[Select all that apply]]></ivuInstr>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V170" name="effectiveness__9" files="F2" intrvl="discrete">
+      <location RecSegNo="1" />
+      <labl><![CDATA[What has been the most effective input given by the TCP to support %foas% in your institution?:Enhanced professional development]]></labl>
+      <qstn>
+        <qstnLit><![CDATA[What has been the most effective input given by the TCP to support %foas% in your institution?]]></qstnLit>
+        <ivuInstr><![CDATA[Select all that apply]]></ivuInstr>
+      </qstn>
+      <varFormat type="numeric" schema="other" />
+    </var>
+    <var ID="V171" name="interview__id" files="F2" intrvl="discrete">
+      <location width="255" RecSegNo="1" />
+      <labl><![CDATA[Unique 32-character long identifier of the interview]]></labl>
+      <qstn />
+      <varFormat type="character" schema="other" />
+    </var>
+  </dataDscr>
+  <fileDscr ID="F1" URI="Temp#33.~esstar?Index=0&amp;Name=cp">
+    <fileTxt>
+      <fileName>cp.NSDstat</fileName>
+      <dimensns>
+        <caseQnty>0</caseQnty>
+        <varQnty>132</varQnty>
+      </dimensns>
+      <fileType>Nesstar 200801</fileType>
+    </fileTxt>
+  </fileDscr>
+  <fileDscr ID="F2" URI="Temp#33.~esstar?Index=1&amp;Name=foas">
+    <fileTxt>
+      <fileName>foas.NSDstat</fileName>
+      <dimensns>
+        <caseQnty>0</caseQnty>
+        <varQnty>39</varQnty>
+      </dimensns>
+      <fileType>Nesstar 200801</fileType>
+    </fileTxt>
+  </fileDscr>
+</codeBook>

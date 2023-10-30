@@ -1,0 +1,7 @@
+country	counterpart	_quantity	_responsible	_webmode	cp_hidden
+34	34036	-1	andres_int	1	34036
+37	37058	-1	andres_int	1	37058
+38	38046	-1	andres_int	1	38046
+79	79006	-1	andres_int	1	79006
+125	125012	-1	andres_int	1	125012
+161	161105	-1	andres_int	1	161105

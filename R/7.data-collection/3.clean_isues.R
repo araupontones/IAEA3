@@ -61,6 +61,10 @@ corrected_sample <- original_sample %>%
     
     #30/10/2023
     cp_id == 158095 ~ "Argentina",
+    #31/10/2023 
+    cp_id == 139001 ~ "Colombia",
+    cp_id == 49097 ~ "Qatar",
+    cp_id == 56003 ~ "Qatar",
     
     T ~ Country_name),
     
@@ -73,6 +77,9 @@ corrected_sample <- original_sample %>%
     
     #30/10
   cp_id == 119099 ~ "GALINGANA, Jake John",
+  
+  #31/10
+  cp_id == 72010 ~ 'TAL, Yoram',
      
       T ~ Name) ,
     
@@ -81,6 +88,8 @@ corrected_sample <- original_sample %>%
      
       email == 'pcereal@lamolina.edu.pe' ~"jjimenezd@lamolina.edu.pe" ,
       cp_id == 119099 ~ 'jjgalingana@gmail.com',
+      #31/10
+      cp_id == 72010 ~ 'yoram.tal@moh.gov.il',
                       T ~ email
                       )
 
@@ -130,14 +139,15 @@ select(country = country_id,
 
 #Create data for campaign ======================================================
 
-date_folder <- '301023'
+date_folder <- '311023'
 links <- read.delim(glue('data/3.Assignments/{date_folder}/interviews.tab'), encoding = "UTF-8") %>%
   #only keep those cases that havent been solved yet
   left_join(select(assignments, cp_hidden, counterpart)) %>%
   filter(!is.na(counterpart)) %>%
   group_by(counterpart) %>%
   filter(assignment__id == max(assignment__id)) %>%
-  select(-counterpart) 
+  select(-counterpart) %>%
+  ungroup()
 
 
 
@@ -149,7 +159,6 @@ clean_links <- links %>%
   relocate(Name, email,Country_name, region, director) %>%
   select(-cp_id) %>%
   rename(Country = Country_name)
-
 
 
 #export(clean_links, glue::glue('data/4.campaigns/cps_solved_{Sys.Date()}.csv'))

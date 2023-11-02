@@ -76,9 +76,10 @@ acc_pers = percent(accessed/sample_n,accuracy = .01)
 comp = by_country_totals$Submitted[by_country_totals$Country_name == 'TOTAL']
 comp_pers = percent(comp/sample_n, accuracy = .01)
 
+knitr::combine_words(sort(by_country$Country_name[by_country$Submitted==0]), sep = ", ")
+
 avg_unanswered = round(mean(status$n_questions_unanswered[status$interview__status == "Submitted"], na.rm = T),1)
 max_unanswered = round(max(status$n_questions_unanswered[status$interview__status == "Submitted"], na.rm = T),1)
-max_unanswered
 
 glue::glue('from the {total_countries} countries in the sample, {havent_submitted} ({perc_havent}) have not submitted any interview yet.')
 glue::glue('{open} ({open_perc}) have opened the invitation email')

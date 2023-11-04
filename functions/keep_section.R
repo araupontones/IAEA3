@@ -1,5 +1,5 @@
 #keep data for section and theme
-
+library(glue)
 keep_section <- function(.data,t,section, sufix){
   
   .data %>%

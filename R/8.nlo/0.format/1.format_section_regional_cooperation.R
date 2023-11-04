@@ -2,6 +2,7 @@ library(rio)
 library(dplyr)
 library(tidyr)
 library(janitor)
+library(stringr)
 gmdacr::load_functions('functions/')
 
 
@@ -14,11 +15,11 @@ raw_data <- import('data/7.NLO/1.raw/Part_1.rds')
 
 #define section
 sections <- c(#"relevance")
-  "effectiveness")
- # "sustainability")
-#"regionalCoop",
-#"future",
-#"visibility")
+             #"effectiveness")
+              #"sustainability")
+              "regionalCoop")
+              #"future",
+              #"visibility")
 
 
 
@@ -28,7 +29,7 @@ sections <- c(#"relevance")
 
 #define themes ---------------------------------------------------------------
 themes <- names(raw_data)[str_detect(names(raw_data), 'theme')]
-
+themes
 
 #each team enabled a different section of the questionnaire.
 #bring all themes in a tidy format
@@ -45,33 +46,30 @@ append_themes <- lapply(themes, function(t){
     #and pivot it longer
     #function created in functions.
     keep_section(t, sections[1], sufix) %>%
-    #   #the column name contains all the info:
-    mutate(section = str_extract(name, '^.*?(?=-|_)'),
+#the column name contains all the info:
+  mutate(section = str_extract(name, '^.*?(?=-|_)'),
            foa = str_remove(name, '^.*_[a-z]{1,}_'),
-           improvement = str_extract(foa, "_.{1,}$"),
-           foa = str_remove(foa, improvement),
-           improvement = str_remove(improvement, "_")
-    ) %>%
-    rename(period = value) %>%
-    select(-name)
+           value_added = str_extract(foa, "_.{1,}$"),
+           foa = str_remove(foa, value_added),
+         foa = str_extract(foa, "^[^__]*"),
+         value_added = str_remove(value_added, "___")) %>%
+  #          ) %>%
+  #   rename(period = value) %>%
+  select(-name)
   
   
   
   
 }) %>% do.call(rbind,.)
 
-
+tabyl(append_themes, foa)
+tabyl(append_themes, value_added)
 #clean relevance ---------------------------------------------------------------
 periods <- sort(unique(append_themes$period))
 
 
 
 
-clean_effectiveness <- append_themes %>%
-  mutate(period = factor(period,
-                         labels = periods,
-                         ordered = T))
-
 tabyl(clean_effectiveness, period)
 #export ------------------------------------------------------------------------
-export(clean_effectiveness, glue('data/7.NLO/2.raw_formatted/Part_1_{sections[1]}.rds'))
+export(append_themes, glue('data/7.NLO/2.raw_formatted/Part_1_{sections[1]}.rds'))

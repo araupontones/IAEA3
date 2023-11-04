@@ -1,22 +1,27 @@
+#Using "questionnaires/NLO/Part I.PDF" as a reference and guidance
 library("haven")
 library("gmdacr")
 
-#Using "questionnaires/NLO/Part I.PDF" as a reference
 
+
+#read file, it was given by Eloisa via email
 sav_file <- "data/7.NLO/1.raw/IAEA TC PROGRAMME ACHIEVEMENTS IN THE 21ST CENTURY - PART I.sav"
-
 raw_data <- read_sav(sav_file)
+
+#look up countries is created in R/2.sample, it is used to get the region
 lkp_countries <- import("data/9.lookups/countries.rds" )
 
 
+#play around with the function attributes to learn how to fetch the variable labels
 attributes(raw_data$q0004_0001)
 attributes(raw_data$q0004_0001)
 
 
 
 #Format single select ==========================================================
+#These are basic single select questions
 
-#define names of the colums
+#define names of the columns
 col_names_single <- c(q0001 = "role",
                       q0002 = "country",
                       q0045 = "promoted_participation_women",
@@ -45,7 +50,7 @@ raw_singles <- raw_data %>% format_single_select(col_names_single)
 
 
 #Format multiple select =======================================================
-
+#These are simple mulitple select. One question, multiple answers
 attributes(raw_data$q0005_0001_0001)
 
 #define name of multiple select variables
@@ -83,9 +88,9 @@ raw_multiple <- raw_singles %>% format_multiple_select(prefixes)
 
 
 ## format sections ===========================================================
+#These are matrix questions, rows are FOAS, columns are categories, cells are values
 
 format_sections <- function(.data, section, prefix, theme){
-  
   
   
   
@@ -115,7 +120,7 @@ format_sections <- function(.data, section, prefix, theme){
     })
 }
 
-
+#For eachh section a sufix is given, this helps to manipulate the data later on in the cleaning stage.
 raw_sections <- raw_multiple %>%
   #FOOD AND AGRICULTURE
   format_sections("q0005", "relevance", 'fa') %>%
@@ -165,7 +170,7 @@ raw_sections <- raw_multiple %>%
   format_sections('q0039', "future",'n') %>%
   format_sections('q0040', "visibility",'n') %>%
   
-  #Partnerships
+  #Partnerships (does not have sufix because apply for all themes)
   format_sections('q0041', "partnerships",'') %>%
   #Women participation
   format_sections('q0044', "women",'') %>%
@@ -191,20 +196,21 @@ raw_sections <- raw_multiple %>%
   )
   ,function(x)susor_get_stata_labels(x))
   ) %>%
-  #drop indicators of pages (redundante)
+  #drop indicators of pages (redundante)-----------------------------------------
   select(-starts_with('p00')) %>%
   #get region
   mutate(country = forcats::fct_recode(country,  "State of Palestine" ="T.T.U.T.J of T. Palestinian A." )) %>%
   left_join(lkp_countries) %>%
+  #Gambia wasnt part of the countries in the CP
   mutate(region = ifelse(country == "Gambia","Africa", region ))
  
 
 
 
-
+#check that all countries in the NLO exist in the lkp
 setdiff(unique(raw_sections$country), lkp_countries$country)
 
-
+#Export
 export(raw_sections,'data/7.NLO/1.raw/Part_1.rds')
 # 
 # check <- names(raw_sections)[str_detect(names(raw_sections), "q0042")]

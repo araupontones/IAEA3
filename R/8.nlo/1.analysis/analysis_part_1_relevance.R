@@ -27,19 +27,22 @@ completed
 #point jitter ----------------------------------------------------------------
 
 data_jitter <- relevance %>%
+  filter(theme == "FOOD and AGRICULTURE") %>%
   filter(!is.na(value),
          value != "Not applicable")
 
 
-tabyl(data_jitter,region)
 
 ggplot(data_jitter,
        aes(x = period,
            y = value,
-           color= region))+
-  geom_point(position = position_jitter(.3), alpha = .5) +
-  facet_wrap(~theme) + 
-  guides(color=guide_legend(ncol=2)) +
+           color= value))+
+  geom_point(position = position_jitter(.3), 
+             alpha = .8) +
+  facet_wrap(~region) + 
+  scale_color_brewer() +
+  guides(color=guide_legend(ncol=2,
+                            override.aes = list(size = 4))) +
   labs(y = "",
        x = "",
        title = "Relevance",

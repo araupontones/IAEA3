@@ -1,8 +1,9 @@
 #Using "questionnaires/NLO/Part I.PDF" as a reference and guidance
 library("haven")
 library("gmdacr")
-
-
+library(dplyr)
+library(susor)
+library(rio)
 
 #read file, it was given by Eloisa via email
 sav_file <- "data/7.NLO/1.raw/IAEA TC PROGRAMME ACHIEVEMENTS IN THE 21ST CENTURY - PART I.sav"
@@ -50,6 +51,12 @@ raw_singles <- raw_data %>% format_single_select(col_names_single)
 export(filter(raw_singles, country == "Georgia"), 
        "data/7.NLO/3.Country_checks/Part_I_Georgia.xlsx",
        overwrite = T)
+
+
+raw_singles %>%
+  group_by(country) %>%
+  summarise(interviews = n()) %>%
+  export(., "data/7.NLO/3.Country_checks/Part_I_interviews_countries.xlsx")
 
 
 #Format multiple select =======================================================

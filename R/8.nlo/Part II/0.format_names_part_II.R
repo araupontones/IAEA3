@@ -17,7 +17,7 @@ lkp_countries <- import("data/9.lookups/countries.rds" )
 
 
 #loopup of sections in the questionnaire, used to split the questionnaires
-lkp_sections <- import('data/9.lookups/lkp_clean_sections_nlo_part_II.xlsx')
+lkp_sections <- import('data/9.lookups/lkp_clean_sections_nlo_part_II.xlsx', sheet = 'themes')
 
 
 #play around with the function attributes to learn how to fetch the variable labels
@@ -114,33 +114,41 @@ format_multiple_select <- function(.data, col_names){
 raw_multiple <- raw_singles %>% format_multiple_select(prefixes) %>%
   rename(First_name = q0003_0001,
          Last_name = q0003_0002) 
+names(raw_multiple)
 
 
-
-
+#using this from the lookup to ease the splitting of the data
+#Split the data in themes and export each file separately
 id_themes <- lkp_sections$theme_id
 
 splited <- lapply(id_themes, function(id){
   message(id)
-  #define questions in section
+  #Get the attributes of each theme section
+  #number where section starts and ends
   sufix <- lkp_sections$theme[lkp_sections$theme_id == id]
   starts <- lkp_sections$starts[lkp_sections$theme_id == id]
   ends <- lkp_sections$ends[lkp_sections$theme_id == id]
   
-  section <- c(starts:ends)
-  less_10 <- section == section[which(section < 10)]
-  section <- as.character(section)
-  section[less_10] <- paste0("0", section[less_10])
+  # section <- c(starts:ends)
+  # less_10 <- section == section[which(section < 10)]
+  # section <- as.character(section)
+  # section[less_10] <- paste0("0", section[less_10])
+  # 
+  # questions <- paste0('q00', section)
   
-  questions <- paste0('q00', section)
+  questions <- questions_of_section(starts, ends)
   
-  
+  #split the data by theme and export
   data_section <- raw_multiple %>%
-    select(theme = glue('theme__{id}'),
+    select(RespondentID,
+           country,
+           theme = glue('theme__{id}'),
            starts_with(glue('foa_{sufix}')),
            starts_with(questions)
            ) %>%
-    rename_at(vars(starts_with("foa")), function(x)str_remove(x, glue("_{sufix}_")))
+    #remove prefix of foa so it is consistent
+    rename_at(vars(starts_with("foa")), function(x)str_remove(x, glue("_{sufix}_"))) %>%
+    filter(!is.na(theme))
   
   
   
@@ -155,6 +163,8 @@ splited <- lapply(id_themes, function(id){
 
   
 })
+
+
 
 # 
 # 

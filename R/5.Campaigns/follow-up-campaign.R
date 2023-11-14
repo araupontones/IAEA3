@@ -18,9 +18,11 @@ campaigns <- list.files('data/4.campaigns/', pattern = "10|oct")
 
 campaigns <- import('data/4.campaigns/cps_follow_up_2023-11-07.csv', encoding = "UTF-8")
 
+int_id <- 'e17146a169434ebb8b81c1149a02cf2e'
+create_url <- glue('https://www.pulpodata.solutions/primary/WebInterview/{int_id}/Section/84064e533a8be47b271b845a5d388e7d')
+create_url
 
 
-#https://www.pulpodata.solutions/primary/WebInterview/721f62acd8e643909a35bd30e9826930/Section/84064e533a8be47b271b845a5d388e7d
 
 
 # appended_campaigns <- lapply(campaigns, function(x){

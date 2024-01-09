@@ -15,7 +15,8 @@ ldcs <- import('data/1.reference/countries/Copy of IAEA members as at 14-12-2023
   select(country= cName,
          ldc = cLDCFlag) %>%
   #clean the names to make them consistent with the sample
-  clean_countries() #function saved in functions/
+  clean_countries() %>%#function saved in functions/
+  mutate(ldc = ifelse(ldc == "Yes", "LDC", "No-LDC"))
 
 
 #lookup table countries =======================================================

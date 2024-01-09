@@ -1,0 +1,103 @@
+
+During the NLO 1 survey, the respondents were asked their opinion about the importance that the TCP will have to contribute in achieving results in the supported countries over the next 5-10 years. This question was asked separately for each of the X Field of Activities (FoA) across the 6 different Thematic Areas.
+
+The question was the following:
+
+*To the best of your knowledge, how important will the contribution of the TC programme be in achieving results in the following areas in your country over the next 5-10 years?*
+
+Although the perception of the importance that the TCP will have in the future was asked separately for each FoA, the results can be aggregated at different levels of aggregation:
+
+* By and between Thematic Areas,
+* By and betwen regions,
+* By and between LDCs.
+
+
+Thus, the this section aims to compare the perception that the NLOs have about the importance of the TCP in achieving results in their countries over the next 5-10 years. The section is divided as follows: It first compares the future perspective between Themes and across regions (using different region categories) ^[The countries are grouped using 3 different categories: 1) Geographical Region, 2) LDC status, 3) The time period in which they were supported.].  
+
+
+```{r cars, echo=FALSE}
+
+#define path to plots of this section
+#dir_project is defined in the parameters
+dir_section_plots <- file.path(dir_project, "analysis/plots/1.future")
+
+```
+
+```{r, echo=F}
+
+plots <- list.files(dir_section_plots, full.names = T)
+
+png_files <-  str_extract(plots, '([^\\/]+$)')
+
+main_section <- str_detect(png_files, "^Between")
+
+files_main <- png_files[main_section]
+
+
+
+
+```
+
+
+```{r f-ta-png, out.width="100%", fig.cap="Importance of TCP in the future."}
+
+#knitr::include_graphics(file.path(dir_section_plots, "By Theme..png"))
+
+```
+
+```{r, results='asis'}
+
+for(f in rev(files_main)){
+
+  #get the title of the section by removing the .png
+  title <- str_remove_all(f, '.png')
+  file <- file.path(dir_section_plots, f)
+  
+  #define the full path of the chart 
+  full_path <- file.path(dir_section_plots, f)
+
+  cat(paste('##', title, "\n"))
+  
+  if(title == "Between Themes."){
+    
+    cat("The NLOs consider that the TCP will be significantly important to achieve results over the next 5-10 years in about 70% of the FoAs related to WATER and ENVIROMENT and NUCLEAR SAFETY and security.\n\n")
+  } 
+  
+  #text ---------------------------------------
+  if(title == "Between Themes & Year Joined."){
+    
+    cat("The year joined refers to the time period when the countries were supported. From the 84 countries that responded to this section, only the following countries were part of the programme After 2009 (The list of TC recipients was provided by IAEA in a word document):\nCambodia, Congo, Rep. of, Djibouti, Kingdom of Eswatini, Lesotho, Montenegro, Oman, Rwanda, Togo, Turkmenistan, and Vanuatu.\n\nFor countries with *programme only after 2015*, there is only data for The Kingdom of Eswatini\n\n.
+")
+    
+  }
+  
+  #text -------------------------------
+  if(title == "Between Themes & Regions."){
+    
+    
+    cat("From the **84 countries** that shared their perceptions of the future persepective, **29 are from Africa:** Angola, Cameroon, Chad, Congo, Rep. of, Democratic Rep. of the Congo, Djibouti, Eritrea, Ethiopia, Gabon, Gambia, Kingdom of Eswatini, Lesotho, Liberia, Libya, Madagascar, Malawi, Mauritania, Mauritius, Mozambique, Niger, Nigeria, Rwanda, Senegal, Seychelles, Sierra Leone, South Africa, Togo, Tunisia, and Zambia.\n\n**19 from Asia and the Pacific:** Afghanistan, Australia, Cambodia, Indonesia, Iraq, Jordan, Kuwait, Malaysia, Mongolia, Nepal, Oman, Pakistan, Qatar, Sri Lanka, Syrian Arab Republic, Thailand, Vanuatu, Viet Nam, and Yemen.\n\n**24 from Europe:** Albania, Armenia, Belarus, Bosnia and Herzegovina, Bulgaria, Croatia, Czech Republic, Estonia, Georgia, Greece, Hungary, Kyrgyzstan, Montenegro, North Macedonia, Portugal, Republic of Moldova, Serbia, Slovakia, Slovenia, Tajikistan, Türkiye, Turkmenistan, Ukraine, and Uzbekistan.\n\n And **12 from Latin America and the Caribbean:** Argentina, Brazil, Chile, Colombia, Costa Rica, Cuba, Dominican Republic, Ecuador, Guatemala, Nicaragua, Panama, and Venezuela.\n\n")
+  }
+  
+  
+  #text ------------------------------------------------
+  
+  if(title == "Between Themes & LDC status."){
+    
+    cat("Overall, the no-LDC countries have a more positive perspective about the importance that the TCP will have in achieving results in their countries over the next 5-10 years.\n\nThe *NA* in the graph is because there's one observation in the data for which the LDC status is pending to be provided to the analyst.")
+  }
+  
+  
+  cat(glue("![](", full_path, ")"), "\n")
+  cat("\n")
+
+}
+```
+
+
+
+
+
+
+
+
+

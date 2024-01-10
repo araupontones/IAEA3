@@ -113,6 +113,7 @@ plots_future  <- lapply(c(1:length(list_analysis)), function(i){
 
 #define all themes in the data
 temas <- levels(future_clean$theme)
+temas
 
 #loop over themes
 analysis_themes <- lapply(temas, function(tema){
@@ -159,6 +160,3 @@ analysis_themes <- lapply(temas, function(tema){
   })
 
 
-
-
- 

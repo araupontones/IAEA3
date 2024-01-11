@@ -166,6 +166,6 @@ ggsave('analysis/plots/1.future/cp/regions_future.png',
        regions_plot)
 
 
-
+regions_plot
 
 

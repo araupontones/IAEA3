@@ -8,7 +8,6 @@
 
 
 
-
 library(rio)
 library(ggplot2)
 library(RColorBrewer)
@@ -35,15 +34,15 @@ future_clean <- future_raw %>%
   dplyr::filter(!is.na(likert)) %>%
   left_join(countries_lkp)
 
-
+names(future_clean)
 
 #check countries that asked these questions
 who_answered <- future_clean %>%
   group_by(country) %>%
   slice(1)
-
-knitr::combine_words(sort(who_answered$country[who_answered$region == "Latin America and the Caribbean"]))
-length(who_answered$country[who_answered$region == "Latin America and the Caribbean"])
+# 
+# knitr::combine_words(sort(who_answered$country[who_answered$region == "Latin America and the Caribbean"]))
+# length(who_answered$country[who_answered$region == "Latin America and the Caribbean"])
 #define categories of th likert scale, later used in the charts
 categories <- levels(future_clean$likert)
 
@@ -90,17 +89,83 @@ list_analysis <- list(
 
 
 
+#Analysis by Categories: Themes 
 
 
-#create plots
-plots_future  <- lapply(c(1:length(list_analysis)), function(i){
+
+create_at_least <- function(.data, by){
   
-  pl <- charts_future(i, db = future_clean)
+  .data %>%
+    mutate(is_important = likert%in% c("Significant")
+           #"Moderate"
+    ) %>%
+    group_by(id, theme, region, ldc, joined) %>%
+    summarise(is_important = max(is_important),
+              .groups = 'drop') %>%
+    group_by_at(by) %>%
+    summarise(responses = n(),
+              is_important = sum(is_important) / responses,
+              .groups = 'drop'
+    ) 
   
+}
+
+names(future_clean)
+
+at_least <- future_clean %>%
+  create_at_least(c('theme', "joined"))
+  
+
+all_at_least <- lapply(c(1:length(list_analysis)), function(i){
+  
+  por = list_analysis[[i]]$group_2
   subtitulo =  list_analysis[[i]]$subtitle
-  #export chart
+  message(por)
+  
+  d <- future_clean %>%
+    create_at_least(por)
+
+
+  plot <- d %>%
+    ggplot(
+      aes(x = is_important,
+          y = reorder(theme, is_important)
+    )) +
+    geom_col(fill = '#0269B5',
+             width = .8) +
+    lapply(c(.25,.50,.75), function(x){
+      
+      geom_vline(xintercept = x,
+                 linetype = 'dashed')
+      
+    }) +
+    labs(title = "Percentage of NLOs that consider that the TCP will have\na significant role in achieving results overt the next 5-10 years.",
+         subtitle = subtitulo) +
+    scale_y_discrete(labels = label_wrap_gen(25)) +
+    scale_x_continuous(expand = c(0,0),
+                       limits = c(0,1),
+                       labels = function(x)percent(x)) +
+    scale_fill_brewer(palette='Blues') +
+    theme_main() 
+  
+  
+  if(i != 1){
+    
+    plot <- plot +
+      facet_wrap(por[1])
+  } else{
+    
+    plot
+  }
+  
+  plot
+    
+  
+  
+  
+  # #export chart
   ggsave(glue('analysis/plots/1.future/{subtitulo}.png'),
-         pl,
+         plot,
          units = 'cm')
   
 }
@@ -108,12 +173,21 @@ plots_future  <- lapply(c(1:length(list_analysis)), function(i){
 )
 
 
-#By FOA ========================================================================
+
+  
+
+
+
+
+
+
+
+#By FOA (for the annex) ========================================================================
 
 
 #define all themes in the data
 temas <- levels(future_clean$theme)
-temas
+
 
 #loop over themes
 analysis_themes <- lapply(temas, function(tema){
@@ -159,4 +233,5 @@ analysis_themes <- lapply(temas, function(tema){
   
   })
 
+length(unique(future_clean$foa)
 

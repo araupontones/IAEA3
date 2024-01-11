@@ -1,5 +1,5 @@
-A total of 2,650 counterparts were interviewed in order to gather their
-opinions abour relevant aspects of the implementation of the TCP.
+A total of 2,650 counterparts were interviewed to gather their
+opinions about relevant aspects of the implementation of the TCP.
 
 Among other questions, the CPS were asked the following:
 
@@ -14,8 +14,8 @@ sustainability of the achievement reached by the programme in their
 countries.
 
 
-![](images/global_future.png)
+![](C:/repositaries/1.work/IAEA3/analysis/plots/1.future/cp/global_future.png)
 
-![](images/themes_future.png)
+![](C:/repositaries/1.work/IAEA3/analysis/plots/1.future/cp/themes_future.png)
 
 ![](C:/repositaries/1.work/IAEA3/analysis/plots/1.future/cp/regions_future.png)

@@ -1,5 +1,5 @@
 
-During the NLO 1 survey, the respondents were asked their opinion about the importance that the TCP will have to contribute in achieving results in the supported countries over the next 5-10 years. This question was asked separately for each of the X Field of Activities (FoA) across the 6 different Thematic Areas.
+During the NLO 1 survey, the respondents were asked their opinion about the importance that the TCP will have to contribute in achieving results in the supported countries over the next 5-10 years. This question was asked separately for each of the 23 Field of Activities (FoA) across the 6 different Thematic Areas.
 
 The question was the following:
 
@@ -15,7 +15,7 @@ Although the perception of the importance that the TCP will have in the future w
 Thus, the this section aims to compare the perception that the NLOs have about the importance of the TCP in achieving results in their countries over the next 5-10 years. The section is divided as follows: It first compares the future perspective between Themes and across regions (using different region categories) ^[The countries are grouped using 3 different categories: 1) Geographical Region, 2) LDC status, 3) The time period in which they were supported.].  
 
 
-```{r cars, echo=FALSE}
+```{r, echo=FALSE}
 
 #define path to plots of this section
 #dir_project is defined in the parameters
@@ -39,11 +39,7 @@ plots_by_themes <- png_files[!main_section]
 ```
 
 
-```{r f-ta-png, out.width="100%", fig.cap="Importance of TCP in the future."}
 
-#knitr::include_graphics(file.path(dir_section_plots, "By Theme..png"))
-
-```
 
 ```{r, results='asis'}
 
@@ -60,13 +56,13 @@ for(f in rev(files_main)){
   
   if(title == "Between Themes."){
     
-    cat("The NLOs consider that the TCP will be significantly important to achieve results over the next 5-10 years in about 70% of the FoAs related to WATER and ENVIROMENT and NUCLEAR SAFETY and security.\n\n")
+    cat("80% of NLOs consider that the TCP will be **significantly important** to achieve results, in at least one FOA related to NUCLEAR SAFETY and SECURITY, over the next 5-10 years.\n\n")
   } 
   
   #text ---------------------------------------
   if(title == "Between Themes & Year Joined."){
     
-    cat("The year joined refers to the time period when the countries were supported. From the 84 countries that responded to this section, only the following countries were part of the programme After 2009 (The list of TC recipients was provided by IAEA in a word document):\nCambodia, Congo, Rep. of, Djibouti, Kingdom of Eswatini, Lesotho, Montenegro, Oman, Rwanda, Togo, Turkmenistan, and Vanuatu.\n\nFor countries with *programme only after 2015*, there is only data for The Kingdom of Eswatini\n\n.
+    cat("The year joined refers to the time period when the countries were supported. From the 84 countries that responded to this section, only the following countries were part of the programme After 2009:\nCambodia, Congo, Rep. of, Djibouti, Kingdom of Eswatini, Lesotho, Montenegro, Oman, Rwanda, Togo, Turkmenistan, and Vanuatu.\n\nFor countries with *programme only after 2015*, there is only data for The Kingdom of Eswatini\n\n(The list of TC recipients was provided by IAEA in a word document)\n\n.
 ")
     
   }
@@ -83,7 +79,7 @@ for(f in rev(files_main)){
   
   if(title == "Between Themes & LDC status."){
     
-    cat("Overall, the no-LDC countries have a more positive perspective about the importance that the TCP will have in achieving results in their countries over the next 5-10 years.\n\nThe *NA* in the graph is because there's one observation in the data for which the LDC status is pending to be provided to the analyst.")
+    cat("Overall, the no-LDC countries have a more positive perspective about the importance that the TCP will have in achieving results in their countries over the next 5-10 years.\n\nThe *NA* in the graph is because there's one observation in the data for which the LDC status is pending to be provided to the analyst.\n\n")
   }
   
   
@@ -95,50 +91,6 @@ for(f in rev(files_main)){
 
 
 ```
-
-
-# Annex. Future Perspective Within Thematic Areas
-
-The following graphs show the perception that the NLOs have about the influence that the TCP will have in achieving results within each Field of Activity of each of the 6 Thematic Areas.
-
-The graphs are expressed in the proportion of respondents that consider how the influence of the TCP will be.
-
-```{r, results='asis'}
-#perspective for FOAs
-
-sufixes <- c("fa", "h", "e", "i", "w", "n")
-
-#subtitle for each thematic area
-for(foa in sufixes){
-  
-  #get the name of the Thematic Arwa
-  tema <- names_themes(foa)
-  
-  #Assign a subtitle
-  cat(paste0('## ',tema, "\n" ))
-  
-  #fetch all the plots of this thematic area
-  plots_tema <-  plots_by_themes[str_detect(plots_by_themes, glue('^{foa}_'))]
-  
-  #display the plots
-  for(plot in plots_tema){
-    
-    #get the full path of the plot
-    full_path <- file.path(dir_section_plots, plot)
-    
-    cat(glue("![](", full_path, ")"), "\n")
-    cat("\n")
-    
-    
-  }
-  
-  
-  
-}
-
-
-```
-
 
 
 

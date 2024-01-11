@@ -12,7 +12,7 @@ theme( axis.text.y = element_text(hjust = 0),
        plot.background = element_rect(fill = 'white'),
        plot.title.position = 'plot',
        plot.title = element_text(size = 16),
-       plot.subtitle =  element_text(size = 14),
+       plot.subtitle =  element_text(size = 14, color = '#757575'),
        text = element_text(family = "Open Sans"),
        
 )

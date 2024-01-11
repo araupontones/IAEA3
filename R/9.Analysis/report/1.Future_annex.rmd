@@ -1,0 +1,44 @@
+
+
+
+
+The following graphs show the perception that the NLOs have about the influence that the TCP will have in achieving results within each Field of Activity of each of the 6 Thematic Areas.
+
+The graphs are expressed in the proportion of respondents that consider how the influence of the TCP will be.
+
+```{r, results='asis'}
+#perspective for FOAs
+
+sufixes <- c("fa", "h", "e", "i", "w", "n")
+
+#subtitle for each thematic area
+for(foa in sufixes){
+  
+  #get the name of the Thematic Arwa
+  tema <- names_themes(foa)
+  
+  #Assign a subtitle
+  cat(paste0('## ',tema, "\n" ))
+  
+  #fetch all the plots of this thematic area
+  plots_tema <-  plots_by_themes[str_detect(plots_by_themes, glue('^{foa}_'))]
+  
+  #display the plots
+  for(plot in plots_tema){
+    
+    #get the full path of the plot
+    full_path <- file.path(dir_section_plots, plot)
+    
+    cat(glue("![](", full_path, ")"), "\n")
+    cat("\n")
+    
+    
+  }
+  
+  
+  
+}
+
+
+```
+

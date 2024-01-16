@@ -1,0 +1,30 @@
+---
+title: "IAEA TC Programme Achievements in the 21st Century"
+subtitle: "Draft: Food & Agriculture"
+output: 
+  bookdown::word_document2:
+  toc: true
+  reference_num: true
+  number_sections: false
+  fig_caption: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, warning = F, message = F, fig.pos= "h")
+
+```
+
+```{r set_up}
+  
+  source("C:/repositaries/1.work/IAEA3/report/0.Parameters.R", local = knitr::knit_global())
+
+  
+```
+
+\newpage
+# Projects Implemented
+
+
+```{r, child=c('1.projects.Rmd')}
+```
+

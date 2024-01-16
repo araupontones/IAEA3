@@ -1,0 +1,59 @@
+
+```{r, include=FALSE}
+
+dir_plts_prjcts_theme <- file.path(dir_plots_projects, "food")
+
+```
+
+
+Administrative data is used to count the total number of projects supported by the TCP in the 21st century.
+
+File used: Copy of CPs_2022_09_12
+
+
+**A total of 8,559 projects** have been supported under the FOOD and AGRICULURE thematic area.
+
+## Number of Projects Across FOAs
+
+
+The coding system of the FOAs has varied over time. To have a consistent coding, the analytical team grouped the FOAs to create a new coding system. Moreover, each FOA is expected to produce a certain improvement. Thus, the FOAs can also be grouped across improvements. 
+
+
+```{r, results='asis'}
+
+cat('### Using Names of the FOAs\n\n')
+
+cat(glue('![]({dir_plts_prjcts_theme}/projects_foas.png)'), "\n\n")
+
+
+cat('### Using Names of the Improvements\n\n')
+
+cat(glue('![]({dir_plts_prjcts_theme}/projects_improvements.png)'),"\n\n")
+#cat(glue("![](", full_path, ")"), "\n")
+#![](C:/repositaries/1.work/IAEA3/analysis/plots/2.future/cp/themes_future.png)
+
+```
+
+
+
+
+## Number of Projects Across Regions
+
+
+
+
+
+```{r, results='asis'}
+
+cat('### Using Names of the FOAs\n\n')
+
+cat(glue('![]({dir_plts_prjcts_theme}/projects_foas_reg.png)'), "\n\n")
+
+
+cat('### Using Names of Improvements\n\n')
+
+cat(glue('![]({dir_plts_prjcts_theme}/projects_improvements_reg.png)'), "\n\n")
+#cat(glue("![](", full_path, ")"), "\n")
+#![](C:/repositaries/1.work/IAEA3/analysis/plots/2.future/cp/themes_future.png)
+
+```

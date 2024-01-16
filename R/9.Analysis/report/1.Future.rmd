@@ -19,7 +19,7 @@ Thus, the this section aims to compare the perception that the NLOs have about t
 
 #define path to plots of this section
 #dir_project is defined in the parameters
-dir_section_plots <- file.path(dir_project, "analysis/plots/1.future")
+dir_section_plots <- file.path(dir_project, "analysis/plots/2.future")
 
 ```
 

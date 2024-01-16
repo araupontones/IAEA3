@@ -28,7 +28,7 @@ projects <- import('data/1.reference/Copy of CPs_2022_09_12.xlsx')
 #create_df_complete is in /functions
 df_complete <- create_df_complete(projects)
 
-  
+ 
 
 #Institutions ==================================================================
 #There's more than one institution by project,
@@ -55,7 +55,7 @@ institutions_id <- df_complete %>%
                                  T ~ Institution))
 
 
-
+tabyl(institutions_id, Country)
 
   
 export(institutions_id, 'data/1.reference/clean/institutions.csv')

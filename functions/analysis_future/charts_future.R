@@ -36,7 +36,7 @@ charts_future <- function(i, mode = "themes", db){
   
   
   #export chart
-  # ggsave(glue('analysis/plots/1.future/{subtitulo}.png'),
+  # ggsave(glue('analysis/plots/2.future/{subtitulo}.png'),
   #        units = 'cm')
   
   return(grafica)

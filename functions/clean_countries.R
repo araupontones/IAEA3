@@ -12,6 +12,7 @@ clean_countries <- function(.data){
              country %in% c('Venezuela, Bolivarian Republic') ~ "Venezuela",
              country %in% c('Democratic Republic of the Con') ~ 'Democratic Rep. of the Congo',
              country %in% c('Congo') ~ 'Congo, Rep. of',
+             country %in% c('T.T.U.T.J of T. Palestinian A.') ~ "State of Palestine",
              T ~ country)
     )
 }

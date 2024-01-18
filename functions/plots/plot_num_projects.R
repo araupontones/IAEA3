@@ -5,7 +5,10 @@ plot_num_projects <- function(.data,
                               regroup = F,
                               num_projects_theme,
                               label_size = 5,
-                              hjust = 1.5){
+                              hjust = 1.5,
+                              unit_title = "Projects"){
+  unit_subtitle <- str_to_lower(unit_title)
+  
   d <- .data
   
   if(regroup){
@@ -28,8 +31,9 @@ plot_num_projects <- function(.data,
               color = "white") +
     scale_y_discrete(label = label_wrap_gen(30)) +
     scale_fill_brewer(palette = 'Greens') +
-    labs(title = "Number of Projects Supported by the TCP in the 21st Century.",
-         subtitle = glue('{theme}: Distribution of the {num_projects_theme} projects supported.'),
+    scale_x_continuous(labels = function(x)prettyNum(x, big.mark = ",")) +
+    labs(title = glue("Number of {unit_title} Supported by the TCP in the 21st Century."),
+         subtitle = glue('{theme}: Distribution of the {num_projects_theme} {unit_subtitle} supported.'),
          caption = "Source: Administrative Data.")+
     theme_main() 
   

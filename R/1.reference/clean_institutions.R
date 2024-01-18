@@ -11,7 +11,9 @@ library(stringr)
 gmdacr::load_functions('functions')
 
 projects <- import('data/1.reference/Copy of CPs_2022_09_12.xlsx')
-
+lkp_foas <- import('data/9.lookups/foas.rds')
+lkp_improvements <- import('data/9.lookups/improvements.rds')
+lkp_countries <- import('data/9.lookups/countries.rds')
 
 
 
@@ -47,18 +49,28 @@ institutions_id <- df_complete %>%
   #this could take a long time. There are many cases of the same institution written 
     #differently
   mutate(Institution = stringr::str_trim(Institution)) %>%
-  distinct() %>%
-  filter(!Institution %in% c('.', "", "•")) %>%
-  mutate(Institution = case_when(str_detect(Institution, "COMENA") ~ "Commissariat à l'énergie atomique (COMENA)",
-                                 str_detect(Institution, "AAEHC") ~ "Afghanistan Atomic Energy High Commission (AAEHC)",
-                                 str_detect(Institution, "AMARAP") ~ "Agence Malienne de Radioprotection (AMARAP)",
-                                 T ~ Institution))
-
-
-tabyl(institutions_id, Country)
-
+  # distinct() %>%
+  # filter(!Institution %in% c('.', "", "•")) %>%
+  # mutate(Institution = case_when(str_detect(Institution, "COMENA") ~ "Commissariat à l'énergie atomique (COMENA)",
+  #                                str_detect(Institution, "AAEHC") ~ "Afghanistan Atomic Energy High Commission (AAEHC)",
+  #                                str_detect(Institution, "AMARAP") ~ "Agence Malienne de Radioprotection (AMARAP)",
+  #                                T ~ Institution)) %>%
+  rename(country = Country) %>%
+  #Clean countries
+  clean_countries() %>%
+  left_join(lkp_countries) %>%
+  clean_regions(.) %>%
+  #fetch foas
+  rename(FOA_old = FOADescription) %>%
+  left_join(lkp_foas) %>%
+  #fetch improvements
+  left_join(lkp_improvements) %>%
+  select(-Index,
+         -total_projects
+         ) 
   
-export(institutions_id, 'data/1.reference/clean/institutions.csv')
+
+export(institutions_id, 'data/1.reference/clean/institutions.rds')
   
 #ID of CPS =====================================================================
   #check that counterparts have a single nationality

@@ -28,3 +28,6 @@ knitr::opts_chunk$set(echo = F, warning = F, message = F, fig.pos= "h")
 ```{r, child=c('1.projects.Rmd')}
 ```
 
+# Institutions supported
+```{r, child=c('2.institutions.Rmd')}
+```

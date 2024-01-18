@@ -24,6 +24,11 @@ countries <- import('data/9.lookups/countries.rds')
 
 
 clean_projects <- projects %>%
+  #Keep only one record for each project
+  #the data contains all the CPs by project.
+  group_by(ProjectNumber) %>%
+  slice(1) %>%
+  ungroup() %>%
   #rename consistently across
   select(FOACode_old  = FOACode,
          Index,

@@ -8,10 +8,10 @@ dir_plts_prjcts_theme <- file.path(dir_plots_projects, "food")
 
 Administrative data is used to count the total number of projects supported by the TCP in the 21st century.
 
-File used: Copy of CPs_2022_09_12
+File used: *Copy of CPs_2022_09_12*
 
 
-**A total of 8,559 projects** have been supported under the FOOD and AGRICULURE thematic area.
+**A total of 1,092 projects** have been supported under the FOOD and AGRICULURE thematic area.
 
 ## Number of Projects Across FOAs
 

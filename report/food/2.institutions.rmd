@@ -1,0 +1,61 @@
+
+```{r, include=FALSE}
+
+dir_plts_insts_theme <- file.path(dir_plots_insts, "food")
+
+```
+
+
+Administrative data is used to count the total number of Institutions supported by the TCP in the 21st century.
+
+Although the same institution could have been supported more than once, the analysis is counting the number of institutions that have been supported at least one time.
+
+File used: *Copy of CPs_2022_09_12*
+
+
+**A total of 2,109 institutions** have been supported under the FOOD and AGRICULURE thematic area.
+
+## Number of Institutions Across FOAs
+
+
+
+
+
+```{r, results='asis'}
+
+cat('### Using Names of the FOAs\n\n')
+
+cat(glue('![]({dir_plts_insts_theme}/insts_foas.png)'), "\n\n")
+
+
+cat('### Using Names of the Improvements\n\n')
+
+cat(glue('![]({dir_plts_insts_theme}/insts_improvements.png)'),"\n\n")
+#cat(glue("![](", full_path, ")"), "\n")
+#![](C:/repositaries/1.work/IAEA3/analysis/plots/2.future/cp/themes_future.png)
+
+```
+
+
+
+
+## Number of Projects Across Regions
+
+
+
+
+
+```{r, results='asis'}
+
+cat('### Using Names of the FOAs\n\n')
+
+cat(glue('![]({dir_plts_insts_theme}/insts_foas_reg.png)'), "\n\n")
+
+
+cat('### Using Names of Improvements\n\n')
+
+cat(glue('![]({dir_plts_insts_theme}/insts_improvements_reg.png)'), "\n\n")
+#cat(glue("![](", full_path, ")"), "\n")
+#![](C:/repositaries/1.work/IAEA3/analysis/plots/2.future/cp/themes_future.png)
+
+```

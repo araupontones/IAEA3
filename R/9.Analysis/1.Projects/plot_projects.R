@@ -11,6 +11,7 @@ library(glue)
 library(ggplot2)
 gmdacr::load_functions('functions')
 gmdacr::load_functions('functions/themes/')
+gmdacr::load_functions('functions/plots/')
 
 #Files are exported here:
 exdir <- 'analysis/plots/2.projects'
@@ -60,8 +61,9 @@ exdir <- 'analysis/plots/2.projects'
 
 #1. total projects within theme=====================================================
 
+themes <- unique(projects$theme)
 
-export_plots <- lapply(themes, function(theme_){
+  export_plots <- lapply(themes, function(theme_){
   
   message(theme_)
   

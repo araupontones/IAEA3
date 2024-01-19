@@ -11,6 +11,14 @@ gmdacr::load_functions('functions/')
 #the above script formats the data from SPSS to R so it is readable
 
 raw_data <- import('data/7.NLO/1.raw/Part_1.rds') 
+foas <- import('data/9.lookups/foas.rds') %>%
+  filter(!is.na(FOA_nlo1)) %>%
+  select(FOACode_new, FOA_new, FOA_nlo1) %>%
+  group_by(FOA_nlo1) %>%
+  slice(1) %>%
+  ungroup()
+
+
 
 #define section
 sections <- c("relevance")
@@ -82,8 +90,13 @@ clean_relevance <- append_themes %>%
          value = factor(value,
                         labels = categories,
                         ordered = T)
+  ) %>%
+  #fetch foas
+  left_join(foas,
+            by = c('foa' = "FOA_nlo1")
   )
 
-tabyl(clean_relevance, value)
+
+
 #export ------------------------------------------------------------------------
 export(clean_relevance, 'data/7.NLO/2.raw_formatted/Part_1_relevance.rds')

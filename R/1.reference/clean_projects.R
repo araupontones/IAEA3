@@ -36,7 +36,7 @@ clean_projects <- projects %>%
          ProjectNumber
          ) %>%
   #Get the new foa ID
-  left_join(select(foas, -total_projects)) %>%
+  left_join(select(foas, -total_projects))
   #Get information of countries
   clean_countries() %>%
   left_join(countries) %>%

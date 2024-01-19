@@ -18,8 +18,8 @@ projects <- import('data/1.reference/Copy of CPs_2022_09_12.xlsx')
 
 
 #get mapping given by IAEA
-mapping <- import('data/1.reference/Copy of FOA mapping - old to new.xlsx') %>%
-  filter(!is.na(old))
+mapping <- import('data/1.reference/Copy of FOA mapping - old to new.xlsx')
+
 
 
 
@@ -34,48 +34,49 @@ foas_questonnaire_raw <- read_sheet(url_gs, 'FOAs')
 
 
 #From projects
-foas_projects <- projects %>% group_by(FOACode, FOADescription) %>%
-  summarise(total_projects = n())
 
-
+foas_projects <- projects %>% count(FOACode,FOADescription, name = "total_projects") %>%
+  filter(!is.na(FOACode))
 
 
 #Get the new IDs of FOAS ========================================================
 
 foas_mapped <- foas_projects %>%
   #join FOAs from prjects with mapping
-  left_join(mapping, by = c("FOACode" = "old" )) %>%
+  full_join(mapping, by = c("FOACode" = "old" )) %>%
   #There are some new codes that do not have old one
   mutate(FOACode_new = ifelse(is.na(new), FOACode, new)) %>%
-  relocate(FOACode_new) %>%
-  #there are projects with missing FOAs
-  filter(!is.na(FOACode_new)) %>%
+  #drop missing from projects (some)
+  relocate(FOACode_new)  %>%
+ 
   select(FOACode_new, FOACode_old = FOACode, 
         FOA_old = FOADescription,
-         total_projects)
-
-
+        FOA_nlo1 = foa_nlo1,
+         total_projects) 
+  
 
 
 
 
 #Get the names of the new FOAs as they are in the questionnaire
 foas_joint <- foas_questonnaire_raw %>%
-  select(FOACode_new = FoA_code, FOA_new = `FoA new name`, theme_code, theme = `Thematic Area`) %>%
+  select(FOACode_new = FoA_code, 
+         FOA_new = `FoA new name`, 
+         theme_code, 
+         theme = `Thematic Area`) %>%
   #Make the format consistent
   mutate(FOACode_new = as.character(FOACode_new),
-         
          FOACode_new = ifelse(str_length(FOACode_new) == 1, paste0('0', FOACode_new), FOACode_new)
         )   %>%
   full_join(foas_mapped) %>%
   arrange(FOACode_new) %>%
   relocate(FOACode_new, FOACode_old,
-           FOA_new, FOA_old) %>%
-  mutate(theme = names_themes(theme_suffix(theme_code)))
- 
+           FOA_new, FOA_old,
+           FOA_nlo1) %>%
+  mutate(theme = names_themes(theme_suffix(theme_code))) 
 
 
-
+View(foas_joint)
 
 
 

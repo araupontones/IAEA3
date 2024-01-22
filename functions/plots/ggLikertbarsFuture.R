@@ -1,5 +1,5 @@
 #Plot likert bars
-
+library(scales)
 ggLikertbarsFuture <- function(.data,
                                titulo,
                                subtitulo){
@@ -21,6 +21,7 @@ ggLikertbarsFuture <- function(.data,
                      labels = function(x)percent(x)) +
   scale_fill_brewer(breaks = rev(categories),
                     labels = rev(categories)) +
-  theme_main()
+  theme_main() +
+    theme(legend.position = 'bottom')
   
 }

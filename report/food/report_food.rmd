@@ -31,3 +31,8 @@ knitr::opts_chunk$set(echo = F, warning = F, message = F, fig.pos= "h")
 # Institutions supported
 ```{r, child=c('2.institutions.Rmd')}
 ```
+
+# Relevance
+
+```{r, child=c('3.relevance.Rmd')}
+```

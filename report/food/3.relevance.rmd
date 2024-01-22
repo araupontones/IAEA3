@@ -1,0 +1,59 @@
+
+```{r, include=FALSE}
+
+dir_plts_relevance_theme <- file.path(dir_plots_relevance, "food")
+
+```
+
+
+The NLOs where asked:
+
+**How would you define the degree to which the TCP has contributed in achieving results in each are of support in your country**.
+
+This question was asked separately across FOAs and five different time periods.
+
+The following charts show: 
+
+* The maximum level of contribution across FOAs.
+* The FOAs for which the NLOs have reported an increase of development stage due to the support of the TCP.
+
+
+## Maximum level of development reported
+
+```{r, results='asis'}
+
+cat('### By FOA\n\n')
+
+cat(glue('![]({dir_plts_relevance_theme}/between_foas.png)'), "\n\n")
+
+
+cat('### By FOA and Region\n\n')
+
+cat(glue('![]({dir_plts_relevance_theme}/between_foas_region.png)'),"\n\n")
+#cat(glue("![](", full_path, ")"), "\n")
+#![](C:/repositaries/1.work/IAEA3/analysis/plots/2.future/cp/themes_future.png)
+
+```
+
+
+
+
+## Increase of stage
+
+
+
+
+
+```{r, results='asis'}
+
+cat('### By FOA\n\n')
+
+cat(glue('![]({dir_plts_relevance_theme}/stages_increase.png)'), "\n\n")
+
+
+cat('### By region\n\n')
+
+cat(glue('![]({dir_plts_relevance_theme}/stages_increase_region.png)'), "\n\n")
+
+
+```

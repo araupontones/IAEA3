@@ -9,7 +9,7 @@ ids_themes <- function(theme){
             detecta(theme, "Energy") ~ 3,
             detecta(theme, "Industrial") ~ 4,
             detecta(theme, "Water") ~ 5,
-            detecta(theme, "Safety") ~ 6,
+            detecta(theme, "Safety|safety") ~ 6,
             detecta(theme, "Knowledge") ~ 7
   )
 }
@@ -30,3 +30,16 @@ names_themes <- function(theme){
 
 
 sufixes <- c("fa", "h", "e", "i", "w", "n")
+
+
+names_themes_2 <- function(id){
+  
+  case_when(id == 1 ~ "FOOD and AGRICULTURE",
+            id == 2 ~ "HEALTH and NUTRITION",
+           id == 3 ~ "ENERGY PLANNING and NUCLEAR POWER",
+            id == 4 ~ "INDUSTRIAL APPLICATIONS and RADIATION TECHNOLOGY",
+            id == 5 ~ "WATER and ENVIRONMENT",
+           id == 6  ~  "NUCLEAR SAFETY AND SECURITY",
+            id == 7 ~ ""
+  )
+}

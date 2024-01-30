@@ -52,7 +52,7 @@ resp_regions <- resp_clean %>%
 #Plot --------------------------------
 
 surveys = unique(resp_regions$survey)
-rm(surveys)
+
 categories <- levels(resp_regions$name)
 
 

@@ -10,6 +10,7 @@ library(stringi)
 library(tidyr)
 library(openxlsx)
 library(janitor)
+library(ggplot2)
 gmdacr::load_functions('functions')
 gmdacr::load_functions('functions/themes/')
 
@@ -45,7 +46,6 @@ cp <- raw_cps %>% select(country, theme) %>%
          survey = 'cp')
 
 
-
 all <- do.call(rbind, list(nlo1, nlo2, cp)) %>%
   mutate(theme = str_to_sentence(theme),
          id = ids_themes(theme),
@@ -61,9 +61,19 @@ themes <- sort(unique(all$id))
 names(lkp_themes)
 exdir = 'report/sample'
 themes
-lapply(themes, function(t){
+#create labels ------------------------------------------------------------
+create_labels2 <- function(db,cat){
+  db %>%
+    filter(name == cat) 
+  #%>%
+   # filter(value > 0)
   
-  message(t)
+}
+
+
+plots <- lapply(themes, function(t){
+  
+  
   theme_name = find_in_lkp(db_lkp = lkp_themes, fetch = 'theme', when = "theme_code", equals = t)
   theme_short =find_in_lkp(db_lkp = lkp_themes, fetch = 'short', when = "theme_code", equals = t)
   
@@ -71,7 +81,7 @@ lapply(themes, function(t){
   
   exfile = glue('{exdir}/responses_{theme_short}.png')
 
-  resp_regions <- all %>%
+  resp_regions2 <- all %>%
     filter(id == t) %>%
     get_regions() %>%
     group_by(survey, region) %>%
@@ -81,39 +91,41 @@ lapply(themes, function(t){
     #Count number of countries that did not respond in the region
     mutate(missing_countries = countries_in_region - countries) %>%
     pivot_longer(-c(region,survey, countries_in_region)) %>%
-    mutate(name = factor(name))
+    mutate(name = factor(name,
+                         labels = c("Responded", "Did not response"),
+                         ordered = T
+                         ))
 
 
-  #create labels ------------------------------------------------------------
-  create_labels <- function(cat){
-    resp_regions %>%
-      filter(name == cat) %>%
-      filter(value > 0)
-
-  }
-
-  labels_countries <- create_labels('countries')
-
-  labels_m_countries <- create_labels('missing_countries')
-  categories <- levels(resp_regions$name)
 
 
-  resp_regions %>%
+  labels_countries <- create_labels2(db = resp_regions2,cat = 'Responded')
+  labels_m_countries <- create_labels2(db =resp_regions2,cat ='Did not response')
+  categories <- levels(resp_regions2$name)
+  print(labels_countries)
+  # 
+  # 
+  # 
+  resp_regions2 %>%
     ggplot(
       aes(x = value,
           y = reorder(region,countries_in_region),
-          fill = reorder(name, value),
+          fill = name,
           label = value)
     ) +
-    geom_col(width = .7) +
+    geom_col(width = .7,
+             position = position_stack(reverse = T)
+             ) +
     #label countries
     geom_text(data = labels_countries,
               hjust =1.8,
+              size = 3,
               family= "Open Sans",
               color = 'white') +
     #label missing countries
     geom_text(data = labels_m_countries,
               hjust = 1,
+              size = 3,
               family= "Open Sans",
               color = 'gray',
               aes(x = countries_in_region)
@@ -124,21 +136,22 @@ lapply(themes, function(t){
          subtitle = "Number of countries that responded and did not respond in each region."
     ) +
     scale_fill_manual(breaks = categories,
-                      labels = c("Responded", "Did not response"),
+                      #labels = c("Responded", "Did not response"),
                       values = rev(c(gray_light, blue_sky))
-
-    ) +
+                      ) +
     theme_main() +
     theme(axis.text.x = element_blank(),
           strip.background = element_rect(fill = blue_navy),
           strip.text = element_text(color = 'white'),
           plot.subtitle = element_text(size = 12)
     )
-
+  # 
   ggsave(exfile,
          units = 'cm',
          width = 16)
-  
+  # 
+  # return(last_plot())
 })
 
+plots[[1]]
   

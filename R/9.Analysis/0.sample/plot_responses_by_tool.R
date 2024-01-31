@@ -9,12 +9,9 @@ library(ggplot2)
 responses <- import('report/sample/responses.xlsx')
 lkp_countries <- import('data/9.lookups/countries.rds')
 gmdacr::load_functions('functions/themes/')
-#fix names of respondents
-names(responses) <- responses[1,]
-names1<- paste("NLO1", names(responses)[2:4], sep = "-")
-names_2 <-paste("NLO2", names(responses)[5:7], sep = "-")
-names(responses) <- c("country", names1, names_2, "CP-Counterpart")
-responses <- responses[-1,]
+
+#Get responses by role and survey
+responses <-get_responses()
 
 #get number the countries in region
 countries_in_region <- countries_region()

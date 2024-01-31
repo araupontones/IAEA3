@@ -13,60 +13,29 @@ library(janitor)
 library(ggplot2)
 gmdacr::load_functions('functions')
 gmdacr::load_functions('functions/themes/')
-
-#read file, it was given by Eloisa via email
-sav_file <- "data/7.NLO/1.raw/IAEA TC PROGRAMME ACHIEVEMENTS IN THE 21ST CENTURY - PART I.sav"
-sav_file2 <- "data/7.NLO/1.raw/IAEA TC PROGRAMME ACHIEVEMENTS IN THE 21ST CENTURY - PART II.sav"
-raw_data <- read_sav(sav_file)
-raw_data2 <- read_sav(sav_file2)
-raw_cps <- import('data/6.data-collection/4.clean/cps.rds')
-
-countries_in_region <- countries_region()
-
-keep_areas <- function(.data, survey){
-  .data %>%
-  #mutate_all(as.character) 
-  rename(country = q0002) %>%
-  mutate(country = susor_get_stata_labels(country)) %>%
-  select(country, starts_with('q0004')) %>%
-  mutate(across(starts_with('q'), function(x)susor_get_stata_labels(x))) %>%
-  pivot_longer(-country,
-               values_to = 'theme') %>%
-  filter(!is.na(theme)) %>%
-  select(-name) %>%
-  mutate(survey = survey)
-}
+lkp_themes <- import('data/9.lookups/themes.csv')
 
 
-#append all surveys ===========================================================
-nlo1 <- raw_data %>% keep_areas('nlo1')
-nlo2 <- raw_data2 %>% keep_areas('nlo2')
-cp <- raw_cps %>% select(country, theme) %>%
-  mutate(theme = susor_get_stata_labels(theme),
-         survey = 'cp')
+#check which countries responded to each survey and each theme
+all <- countries_by_theme()
 
 
-all <- do.call(rbind, list(nlo1, nlo2, cp)) %>%
-  mutate(theme = str_to_sentence(theme),
-         id = ids_themes(theme),
-         theme = names_themes_2(id)) %>%
-  clean_countries()
 
-#count and graph
-tabyl(resp_regions, region)
+
+
 #1. how many countries in each region by each survey?
   
-lkp_themes <- import('data/9.lookups/themes.csv')
-themes <- sort(unique(all$id))
-names(lkp_themes)
+
+themes <- sort(unique(all$id_theme))
+
+
 exdir = 'report/sample'
-themes
+
 #create labels ------------------------------------------------------------
 create_labels2 <- function(db,cat){
   db %>%
-    filter(name == cat) 
-  #%>%
-   # filter(value > 0)
+    filter(name == cat) %>%
+    filter(value > 0)
   
 }
 
@@ -82,7 +51,7 @@ plots <- lapply(themes, function(t){
   exfile = glue('{exdir}/responses_{theme_short}.png')
 
   resp_regions2 <- all %>%
-    filter(id == t) %>%
+    filter(id_theme == t) %>%
     get_regions() %>%
     group_by(survey, region) %>%
     summarise(countries = length(unique(country)), .groups = 'drop') %>%

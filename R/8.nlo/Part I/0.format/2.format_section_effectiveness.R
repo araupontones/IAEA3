@@ -2,6 +2,7 @@ library(rio)
 library(dplyr)
 library(tidyr)
 library(janitor)
+library(stringr)
 gmdacr::load_functions('functions/')
 
 
@@ -11,6 +12,20 @@ gmdacr::load_functions('functions/')
 #the above script formats the data from SPSS to R so it is readable
 
 raw_data <- import('data/7.NLO/1.raw/Part_1.rds') 
+
+#Mapping of foas
+mapping_foas <- import('data/1.reference/mapping_foas.xlsx') %>%
+  #updating the name of the foa
+  select(foa = foa_nlo1_effectiveness, improvement) %>%
+  filter(!is.na(foa)) %>%
+  group_by(foa) %>%
+  slice(1) %>%
+  ungroup()
+
+
+#lookup outcomes (to be consistent with ToC)
+
+lkp_outcomes <- import('data/9.lookups/outcomes.xlsx')
 
 #define section
 sections <- c(#"relevance")
@@ -48,9 +63,11 @@ append_themes <- lapply(themes, function(t){
     #   #the column name contains all the info:
     mutate(section = str_extract(name, '^.*?(?=-|_)'),
            foa = str_remove(name, '^.*_[a-z]{1,}_'),
-           improvement = str_extract(foa, "_.{1,}$"),
-           foa = str_remove(foa, improvement),
-           improvement = str_remove(improvement, "_")
+           outcome_nlo = str_extract(foa, "_.{1,}$"),
+           foa = str_remove(foa, outcome_nlo),
+           outcome_nlo = str_remove(outcome_nlo, "_"),
+           outcome_nlo = str_trim(outcome_nlo),
+           outcome_nlo = ifelse(str_detect(outcome_nlo, "Upgrade institutions"), "Upgraded institutions / Laboratories/ Educational centers", outcome_nlo)
     ) %>%
     rename(period = value) %>%
     select(-name)
@@ -65,13 +82,27 @@ append_themes <- lapply(themes, function(t){
 periods <- sort(unique(append_themes$period))
 
 
-
-
+names(append_themes)
+#14,725
 clean_effectiveness <- append_themes %>%
   mutate(period = factor(period,
                          labels = periods,
-                         ordered = T))
+                         ordered = T)) %>%
+  mutate(foa = str_trim(foa),
+         foa = str_replace_all(foa, "  ", " ")) %>%
+    #get the improvements
+  left_join(mapping_foas,
+            by = c("foa")
+            ) %>%
+    #get the outcomes
+    left_join(lkp_outcomes) %>%
+  select(-outcome_nlo) %>%
+  #identifit those countries that have achieved it
+  mutate(achieved = ifelse(is.na(period)|period == "N/A", 0,1))
 
-tabyl(clean_effectiveness, period)
+
+
+sections
 #export ------------------------------------------------------------------------
 export(clean_effectiveness, glue('data/7.NLO/2.raw_formatted/Part_1_{sections[1]}.rds'))
+#export(clean_effectiveness, glue('data/11.powerbi/{sections}.csv'))

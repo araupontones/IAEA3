@@ -1,5 +1,6 @@
 library(rio)
 library(ggplot2)
+library(dplyr)
 gmdacr::load_functions('functions/themes/')
 
 foas <- import('data/9.lookups/foas.rds')
@@ -56,10 +57,20 @@ dictionary %>%
 #How Many FOA NLO1 ================================================================
 
 sum(t$n)
-
+unique(dictionary$cp_improvements)
 t <- dictionary %>%
-  count(`foa_nlo2 (improvements)`, Area) %>%
+  filter(!is.na(foa_nlo1)) %>%
+  count(`foa_nlo1`, Area) %>%
   count(Area) %>%
-  create_plot(title = "# of FOAS in NLO2") +
+  create_plot(title = "# of FOAS in NLO1") +
+  theme(axis.text.x = element_blank())
+names(dictionary)
+#How many foas in CP
+t <- dictionary %>%
+  filter(!is.na(cp_improvements)) %>%
+  count(cp_improvements, Area) %>%
+  count(Area) %>%
+  create_plot(title = "# of FOAS in CP") +
   theme(axis.text.x = element_blank())
 
+t

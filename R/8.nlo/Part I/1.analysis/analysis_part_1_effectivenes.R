@@ -19,23 +19,37 @@ qa <- effectiveness %>%
             perc_unanswered = unanswered/questions
   )
 
-completed <- sum(qa$perc_unanswered == 0)
-completed
 
+
+min(effectiveness$period) +1
+#data for power BI =============================================================
+
+powerbi <- effectiveness %>%
+  group_by(country,region, theme,improvement, outcome) %>%
+  summarise(when = min(period, na.rm = T),
+            achieved = max(achieved)
+            
+            )
+export(powerbi, glue('data/11.powerbi/{sections}.csv'))
+
+
+View(powerbi)
 data_plot <- effectiveness %>%
   filter(theme == "FOOD and AGRICULTURE") %>%
   filter(!is.na(period),
          period != "N/A") %>%
-  group_by(theme, improvement, period, region) %>%
+  group_by(theme, outcome, period, region) %>%
   summarise(total = n())
 
+tabyl(effectiveness, period)
 
+View(effectiveness)
 
-
+min(effectiveness$period)
 #plot
 ggplot(data_plot,
        aes(
-         y = improvement,
+         y = outcome,
          x = period,
          fill = total)) +
  geom_tile() +
@@ -43,7 +57,7 @@ ggplot(data_plot,
        x = "",
        title = "Effectiveness",
        subtitle = "Time range when improvements where introduce by TCP."
-       ) +
+       ) 
   scale_y_discrete(labels = label_wrap(30)) +
   scale_fill_distiller(palette = "Blues", direction = 1) +
   facet_wrap(~region) +

@@ -18,7 +18,7 @@ raw_d <- import('data/6.data-collection/4.clean/cps.rds') %>%
   select(counterpart,country, region, theme, ldc, joined, starts_with('future'))
 
 #These where the categories in the questionnaire -----------------------------
-aspects = c(
+needs = c(
   '1' ='Trained staff remain in the institution',
   '2' ='Trained staff applying knowledge acquired',
   '3' = 'Equipment properly maintained',
@@ -27,9 +27,9 @@ aspects = c(
   '98' = 'Others')
 
 
-aspect_name <- function(x){
+needs_name <- function(x){
   
-  aspects[x]
+  needs[x]
   
 }
 
@@ -48,13 +48,15 @@ clean_d <- raw_d %>%
   #format data to better read
   pivot_longer(starts_with('future'),
                values_to = 'rank',
-               names_to = 'aspect_id'
+               names_to = 'needs_id'
   ) %>%
-  #get the names of the aspects
-  mutate(aspect = str_remove(aspect_id, 'future__'),
-         aspect = aspect_name(aspect)
+  #get the names of the needs
+  mutate(needs = str_remove(needs_id, 'future__'),
+         needs = needs_name(needs)
   ) %>%
-  select(-aspect_id)
+  select(-needs_id)
+
+
 
 #total of 2,605 counterparts
 length(unique(clean_d$counterpart))
@@ -72,7 +74,7 @@ format_ranks <- function(.data,
     #drop when rank is 0
     filter(rank != 0) %>%
     #Count the number of votes by group
-    group_by_at(c('rank', 'aspect', by)) %>%
+    group_by_at(c('rank', 'needs', by)) %>%
     summarise(votes = n(),
               .groups = 'drop') %>%
     #count the number of counterparts by ranking
@@ -84,7 +86,7 @@ format_ranks <- function(.data,
     ungroup() %>%
     #count the numner of times an aspect was selected within the group
     #to be able to sort the aspects in the plot
-    group_by_at(c('aspect', by)) %>%
+    group_by_at(c('needs', by)) %>%
     mutate(times_selected = sum(votes),
            rank =factor(rank,
                         levels= c("3", "2", "1"),
@@ -144,8 +146,9 @@ global<- clean_d %>% format_ranks(NULL)
 
 #2. themes
 themes <- clean_d %>%
-  mutate(theme = susor::susor_get_stata_labels(theme)) %>%
-    format_ranks(by = 'theme')
+    format_ranks(by = c('theme', 'region'))
+
+export(themes, 'data/11.powerbi/future.csv')
 
 
 #3. Region

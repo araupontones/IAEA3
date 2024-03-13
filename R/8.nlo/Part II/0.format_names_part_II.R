@@ -6,6 +6,7 @@ library(susor)
 library(stringr)
 library(glue)
 library(rio)
+source('functions/questions_of_section.R')
 
 list.files('data/7.NLO/1.raw/')
 #read file, it was given by Eloisa via email
@@ -51,7 +52,7 @@ format_single_select <- function(.data, col_names){
 }
 
 
-
+names(raw_singles)
 
 raw_singles <- raw_data %>% format_single_select(col_names_single)
 
@@ -137,6 +138,7 @@ splited <- lapply(id_themes, function(id){
   data_section <- raw_multiple %>%
     select(RespondentID,
            country,
+           role,
            theme = glue('theme__{id}'),
            starts_with(glue('foa_{sufix}')),
            starts_with(questions)
@@ -158,5 +160,5 @@ splited <- lapply(id_themes, function(id){
 
   
 })
-
+View(splited[[1]])
 

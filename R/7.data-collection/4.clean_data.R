@@ -76,7 +76,8 @@ completed_foas <- raw_foas %>%
   #drop empty sections 
   filter(na_count < 36) %>%
   #get variable labels
-  mutate(across(starts_with('dev'), function(x)as.character(susor::susor_get_stata_labels(x))))
+  mutate(across(c(starts_with('dev'),tcp_contribution),
+                function(x)as.character(susor::susor_get_stata_labels(x))))
 
 message(paste("Before:", nrow(completed_foas)))
 head(completed_foas$theme)

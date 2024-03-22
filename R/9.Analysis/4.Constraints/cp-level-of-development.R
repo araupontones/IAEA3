@@ -23,11 +23,11 @@ tabyl(foas, theme)
 #development level.
 #variables: dev_2023, dev_2000, and dev_reason (in case dev_2023 < dev_2000)
 dev_level <- foas %>%
-  select(interview__id,theme, starts_with('dev'), region, foa, improvement) 
+  select(interview__id,theme, starts_with('dev'), region, foa, improvement, tcp_contribution) 
 #%>%
   #mutate(theme = names_themes_2(theme)) %>%
  # filter(theme == "Food and Agriculture") 
-
+tabyl(dev_level, tcp_contribution)
 sum(!is.na(dev_level$dev_reason))
 #change in development
 change_dev <- dev_level %>%
@@ -37,18 +37,27 @@ change_dev <- dev_level %>%
   filter(!is.na(value)) %>%
   mutate(period = str_remove(period, "dev_"),
          period = ifelse(period == "2000", "Before TCP", period),
-         status = case_when(str_detect(value, "EARLY") ~ "Early Stage",
-                           str_detect(value, "OPERATIONAL") ~ "Operational",
-                           str_detect(value, "EXPANSION") ~ "Expansion",
-                           T ~ "No Capacity"
+         status = case_when(str_detect(value, "EARLY") ~ "1.Early Stage",
+                           str_detect(value, "OPERATIONAL") ~ "2.Operational",
+                           str_detect(value, "EXPANSION") ~ "3.Expansion",
+                           T ~ "0.No Capacity"
                            ),
          status = factor(status,
-                        levels = c("No Capacity", "Early Stage", "Operational", "Expansion"),
+                        levels = c("0.No Capacity", "1.Early Stage", "2.Operational", "3.Expansion"),
                         ordered = T
-                        )
+                        ),
+         
+         tcp_contribution = case_when(str_detect(tcp_contribution, "not contributed") ~ "0.Did not contribute",
+                                      str_detect(tcp_contribution, "extent") ~ "1.To some extent",
+                                      str_detect(tcp_contribution, "substantially ") ~ "2.Contributed substantially",
+                                      str_detect(tcp_contribution, "not possible") ~ "3.Impossible without TCP",
+                                      T ~ tcp_contribution
+         ),
+         shrinked = ifelse(!is.na(dev_reason), "Shrinked","Improved" )
          )
 
 
+tabyl(change_dev, tcp_contribution)
 export(change_dev, "data/11.powerbi/status_development.csv")
 #   group_by(name, value) %>%
 #   count() %>%

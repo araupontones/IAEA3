@@ -2,6 +2,7 @@ library(rio)
 library(dplyr)
 library(tidyr)
 library(janitor)
+library(stringr)
 gmdacr::load_functions('functions/')
 
 
@@ -11,6 +12,25 @@ gmdacr::load_functions('functions/')
 #the above script formats the data from SPSS to R so it is readable
 
 raw_data <- import('data/7.NLO/1.raw/Part_1.rds') 
+
+#Mapping of foas
+mapping_foas <- import('data/1.reference/mapping_foas.xlsx') %>%
+  #updating the name of the foa
+  select(foa,
+         foa_nlo1_effectiveness, 
+         improvement) %>%
+  filter(!is.na(foa_nlo1_effectiveness)) %>%
+  group_by(foa) %>%
+  slice(1) %>%
+  ungroup()
+
+
+
+#lookup outcomes (to be consistent with ToC)
+
+lkp_outcomes <- import('data/9.lookups/outcomes.xlsx')
+
+
 
 #define section
 sections <- c(#"relevance")
@@ -50,9 +70,15 @@ append_themes <- lapply(themes, function(t){
            foa = str_remove(name, '^.*_[a-z]{1,}_'),
            improvement = str_extract(foa, "_.{1,}$"),
            foa = str_remove(foa, improvement),
-           improvement = str_remove(improvement, "_")
+           improvement = str_remove(improvement, "_"), 
+           improvement = str_trim(improvement),
+           improvement = str_to_sentence(improvement),
+           improvement = str_replace_all(improvement, "/ ", "/"),
+           improvement = str_replace_all(improvement, "education centres", "education centre")
            ) %>%
-    rename(period = value) %>%
+    rename(period = value,
+           foa_nlo1_effectiveness = foa,
+           outcome_nlo = improvement ) %>%
    select(-name)
   
   
@@ -60,18 +86,37 @@ append_themes <- lapply(themes, function(t){
   
 }) %>% do.call(rbind,.)
 
+tabyl(append_themes, improvement)
+
+
 
 #clean relevance ---------------------------------------------------------------
 periods <- sort(unique(append_themes$period))
 
 
-
+message(paste("Before: ", nrow(append_themes)))
 
 clean_sustainability <- append_themes %>%
   mutate(period = factor(period,
                             labels = periods,
-                         ordered = T))
+                         ordered = T)) %>%
+  #get the foas
+  mutate(foa_nlo1_effectiveness = str_trim(foa_nlo1_effectiveness),
+         foa_nlo1_effectiveness = str_replace_all(foa_nlo1_effectiveness, "  ", " ")) %>%
+  left_join(mapping_foas, by = c("foa_nlo1_effectiveness")) %>%
+  #get the outcomes
+  left_join(lkp_outcomes) %>%
+  select(-outcome_nlo) %>%
+  #identifit those countries that have achieved it
+  mutate(achieved = ifelse(is.na(period)|period == "N/A", 0,1),
+         period = fct_recode(period, "< 2000" = "> 2000"))
 
-tabyl(clean_effectiveness, period)
+names(clean_sustainability)
+
+
+message(paste("After: ", nrow(clean_sustainability)))
+names(clean_sustainability)
+
+tabyl(clean_sustainability, period)
 #export ------------------------------------------------------------------------
 export(clean_sustainability, 'data/7.NLO/2.raw_formatted/Part_1_sustainability.rds')

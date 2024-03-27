@@ -43,3 +43,20 @@ names_themes_2 <- function(id){
             id == 7 ~ ""
   )
 }
+
+#From NLO to lokup foas
+from_nlo_to_foas <- function(id){
+  
+  
+  case_when(id == "FOOD and AGRICULTURE" ~ "Food and Agriculture",
+            id == "HEALTH and NUTRITION" ~ "Health and Nutrition",
+            id == "ENERGY PLANNING and NUCLEAR POWER" ~ "Energy",
+            id == "INDUSTRIAL APPLICATIONS and RADIATION TECHNOLOGY" ~ "Industrial Applications/Radiation technology",
+            id == "WATER and ENVIRONMENT" ~ "Water and the Environment",
+            id == "NUCLEAR SAFETY AND SECURITY" ~ "Safety and Security",
+            T ~ "A"
+  )
+  
+  
+}
+

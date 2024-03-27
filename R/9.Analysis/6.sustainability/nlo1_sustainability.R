@@ -33,7 +33,7 @@ powerbi_sus <- sustainability %>%
 
 export(powerbi_sus, glue('data/11.powerbi/sustainability.csv'))
 
-
+#convert to long to allow conneection betwen outcomes and intermediate outcomes
 powerbi_long <- powerbi_sus %>%
   mutate(id_outcome = int_outcome) %>%
   pivot_longer(c(outcome, int_outcome),

@@ -6,20 +6,32 @@ library(extrafont)
 effectiveness <- import('data/7.NLO/2.raw_formatted/Part_1_effectiveness.rds')
 missing <- scales::percent(sum(is.na(effectiveness$period)) / nrow(effectiveness))
 
+nrow(effectiveness)
+tabyl(effectiveness, foa)
 
 glue('{missing} of the questions were missing')
 names(effectiveness)
 
 #data for power BI =============================================================
 
-powerbi <- effectiveness %>%
+powerbi_eff <- effectiveness %>%
+  #drop missing foas (we need to associate the missing ones in the mapping_foas)
+  filter(!is.na(foa)) %>%
   group_by(country,region, theme,improvement, foa,int_outcome, foa_nlo1_effectiveness) %>%
-  summarise(when = min(period, na.rm = T),
-            achieved = max(achieved)
+  summarise(when_int_outcome = min(period, na.rm = T),
+            achieved_int_outcome = max(achieved),
+            .groups = 'drop'
             
             )
-sections
-View(powerbi)
+
+
+warnings()
+tabyl(powerbi_sus, foa)
+nrow(powerbi_eff)
+#sections
+#View(powerbi)
+
+
 export(powerbi, glue('data/11.powerbi/{sections}.csv'))
 
 

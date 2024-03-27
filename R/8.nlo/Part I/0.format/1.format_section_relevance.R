@@ -2,7 +2,10 @@ library(rio)
 library(dplyr)
 library(tidyr)
 library(janitor)
+library(stringr)
 gmdacr::load_functions('functions/')
+
+
 
 
 
@@ -11,10 +14,11 @@ gmdacr::load_functions('functions/')
 #the above script formats the data from SPSS to R so it is readable
 
 raw_data <- import('data/7.NLO/1.raw/Part_1.rds') 
-foas <- import('data/9.lookups/foas.rds') %>%
-  filter(!is.na(FOA_nlo1)) %>%
-  select(FOACode_new, FOA_new, FOA_nlo1) %>%
-  group_by(FOA_nlo1) %>%
+
+foas <- import('data/1.reference/mapping_foas.xlsx')  %>%
+  filter(!is.na(foa_nlo1)) %>%
+  select(new, foa, foa_nlo1, improvement, theme) %>%
+  group_by(foa_nlo1, theme) %>%
   slice(1) %>%
   ungroup()
 
@@ -55,10 +59,10 @@ append_themes <- lapply(themes, function(t){
     keep_section(t, 'relevance', sufix) %>%
     #the column name contains all the info:
     mutate(section = str_extract(name, '^.*?(?=-|_)'),
-           foa = str_remove(name, '^.*_[a-z]{1,}_'),
+           foa_nlo1 = str_remove(name, '^.*_[a-z]{1,}_'),
            period = str_extract(name,'_.[0-9]{1,}_[0-9]{1,}$'),
-           foa = str_remove(foa, period),
-           foa = str_trim(foa),
+           foa_nlo1 = str_remove(foa_nlo1, period),
+           foa_nlo1 = str_trim(foa_nlo1),
            period = str_remove(period,'_'),
            period = str_replace(period, '_', '-')
     ) %>%
@@ -69,6 +73,9 @@ append_themes <- lapply(themes, function(t){
   
 }) %>% do.call(rbind,.)
 
+
+tabyl(append_themes, theme)
+tabyl(foas, theme)
 
 #clean relevance ---------------------------------------------------------------
 periods <- sort(unique(append_themes$period))
@@ -89,14 +96,18 @@ clean_relevance <- append_themes %>%
                            ),
          value = factor(value,
                         labels = categories,
-                        ordered = T)
+                        ordered = T),
+         theme = from_nlo_to_foas(theme)
   ) %>%
   #fetch foas
   left_join(foas,
-            by = c('foa' = "FOA_nlo1")
-  )
+            by = c("foa_nlo1", "theme")
+  ) %>%
+  rename(stage = value)
 
+tabyl(clean_relevance, stage)
+tabyl(clean_relevance, theme)
 
-
+names(clean_relevance)
 #export ------------------------------------------------------------------------
 export(clean_relevance, 'data/7.NLO/2.raw_formatted/Part_1_relevance.rds')

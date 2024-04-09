@@ -2,9 +2,14 @@ library(rio)
 library(ggplot2)
 library(RColorBrewer)
 library(extrafont)
+library(janitor)
 
+#this data is cleaned in R/8.nlo/PartI/0.format
 effectiveness <- import('data/7.NLO/2.raw_formatted/Part_1_effectiveness.rds')
-missing <- scales::percent(sum(is.na(effectiveness$period)) / nrow(effectiveness))
+#missing <- scales::percent(sum(is.na(effectiveness$period)) / nrow(effectiveness))
+
+names(effectiveness)
+tabyl(effectiveness, foa, theme)
 
 nrow(effectiveness)
 tabyl(effectiveness, foa)
@@ -24,15 +29,15 @@ powerbi_eff <- effectiveness %>%
             
             )
 
-
+names(powerbi_eff)
 warnings()
 tabyl(powerbi_sus, foa)
 nrow(powerbi_eff)
-#sections
+sections
 #View(powerbi)
 
 
-export(powerbi, glue('data/11.powerbi/{sections}.csv'))
+export(powerbi_eff, glue('data/11.powerbi/{sections}.csv'))
 
 
 # 

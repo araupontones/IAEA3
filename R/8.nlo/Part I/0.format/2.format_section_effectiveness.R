@@ -14,19 +14,23 @@ gmdacr::load_functions('functions/')
 
 names(raw_data)
 raw_data <- import('data/7.NLO/1.raw/Part_1.rds') 
-names(mapping_foas)
+
+#names(mapping_foas)
 #Mapping of foas
 mapping_foas <- import('data/1.reference/mapping_foas.xlsx') %>%
   #updating the name of the foa
-  select(foa,
+  select(theme,
+         foa,
        foa_nlo1_effectiveness, 
          improvement) %>%
   filter(!is.na(foa)) %>%
-  group_by(foa) %>%
+  group_by(theme,foa) %>%
   slice(1) %>%
   ungroup()
 
-tabyl(mapping_foas, foa_nlo1_effectiveness)
+
+
+#mapping_foas$foa[mapping_foas$theme == 'Health and Nutrition']
 
 #lookup outcomes (to be consistent with ToC)
 
@@ -86,7 +90,7 @@ append_themes <- lapply(themes, function(t){
 #clean relevance ---------------------------------------------------------------
 periods <- sort(unique(append_themes$period))
 
-
+tabyl(clean_effectiveness, theme)
 
 #14,725
 clean_effectiveness <- append_themes %>%
@@ -94,10 +98,11 @@ clean_effectiveness <- append_themes %>%
                          labels = periods,
                          ordered = T)) %>%
   mutate(foa_nlo1_effectiveness = str_trim(foa_nlo1_effectiveness),
-         foa_nlo1_effectiveness = str_replace_all(foa_nlo1_effectiveness, "  ", " ")) %>%
+         foa_nlo1_effectiveness = str_replace_all(foa_nlo1_effectiveness, "  ", " "),
+         theme = from_nlo_to_foas(theme)) %>%
     #get the improvements
   left_join(mapping_foas,
-            by = c("foa_nlo1_effectiveness")
+            by = c("foa_nlo1_effectiveness", "theme")
             ) %>%
     #get the outcomes
     left_join(lkp_outcomes) %>%
@@ -107,7 +112,15 @@ clean_effectiveness <- append_themes %>%
          period = fct_recode(period, "< 2000" = "> 2000"))
 
 
+tabyl(clean_effectiveness, theme)
+my_theme = filter(clean_effectiveness, theme == "Water and the Environment")
 
+
+
+tabyl(my_theme, foa)
+tabyl(my_theme, foa_nlo1_effectiveness)
+#foa_nlo1_effectiveness
+sections
 #export ------------------------------------------------------------------------
 export(clean_effectiveness, glue('data/7.NLO/2.raw_formatted/Part_1_{sections[1]}.rds'))
 #export(clean_effectiveness, glue('data/11.powerbi/{sections}.csv'))

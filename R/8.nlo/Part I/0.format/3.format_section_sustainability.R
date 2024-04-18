@@ -3,6 +3,7 @@ library(dplyr)
 library(tidyr)
 library(janitor)
 library(stringr)
+library(forcats)
 gmdacr::load_functions('functions/')
 
 
@@ -20,7 +21,7 @@ mapping_foas <- import('data/1.reference/mapping_foas.xlsx') %>%
          foa_nlo1_effectiveness, 
          improvement) %>%
   filter(!is.na(foa_nlo1_effectiveness)) %>%
-  group_by(foa) %>%
+  group_by(foa_nlo1_effectiveness) %>%
   slice(1) %>%
   ungroup()
 
@@ -33,12 +34,8 @@ lkp_outcomes <- import('data/9.lookups/outcomes.xlsx')
 
 
 #define section
-sections <- c(#"relevance")
-             #"effectiveness")
-              "sustainability")
-              #"regionalCoop",
-              #"future",
-              #"visibility")
+sections <- c("sustainability")
+              
 
 
 
@@ -86,7 +83,7 @@ append_themes <- lapply(themes, function(t){
   
 }) %>% do.call(rbind,.)
 
-tabyl(append_themes, improvement)
+
 
 
 
@@ -102,7 +99,9 @@ clean_sustainability <- append_themes %>%
                          ordered = T)) %>%
   #get the foas
   mutate(foa_nlo1_effectiveness = str_trim(foa_nlo1_effectiveness),
-         foa_nlo1_effectiveness = str_replace_all(foa_nlo1_effectiveness, "  ", " ")) %>%
+         foa_nlo1_effectiveness = str_replace_all(foa_nlo1_effectiveness, "  ", " "),
+         foa_nlo1_effectiveness = str_replace_all(foa_nlo1_effectiveness, "Human health", "human health"),
+         foa_nlo1_effectiveness = str_replace_all(foa_nlo1_effectiveness, "afecting", "affecting")) %>%
   left_join(mapping_foas, by = c("foa_nlo1_effectiveness")) %>%
   #get the outcomes
   left_join(lkp_outcomes) %>%
@@ -111,12 +110,6 @@ clean_sustainability <- append_themes %>%
   mutate(achieved = ifelse(is.na(period)|period == "N/A", 0,1),
          period = fct_recode(period, "< 2000" = "> 2000"))
 
-names(clean_sustainability)
 
-
-message(paste("After: ", nrow(clean_sustainability)))
-names(clean_sustainability)
-
-tabyl(clean_sustainability, period)
 #export ------------------------------------------------------------------------
 export(clean_sustainability, 'data/7.NLO/2.raw_formatted/Part_1_sustainability.rds')

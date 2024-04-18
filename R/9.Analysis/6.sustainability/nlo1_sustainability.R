@@ -1,7 +1,11 @@
 library(rio)
-library(ggplot2)
-library(RColorBrewer)
-library(extrafont)
+
+
+library(dplyr)
+library(janitor)
+library(glue)
+library(tidyr)
+
 
 sustainability <- import('data/7.NLO/2.raw_formatted/Part_1_sustainability.rds')
 
@@ -11,12 +15,21 @@ sustainability <- import('data/7.NLO/2.raw_formatted/Part_1_sustainability.rds')
 
 #glue('{missing} of the questions were missing')
 names(sustainability)
+tabyl(powerbi_eff,achieved_int_outcome )
+names(powerbi_eff)
+eff <- select(powerbi_eff,country, foa, theme, int_outcome,achieved_int_outcome, when_int_outcome )
 
+names(powerbi_eff)
+tabyl(powerbi_sus, achieved_int_outcome)
+
+tabyl(powerbi_eff, theme)
+tabyl(powerbi_sus, theme)
 #data for power BI =============================================================
 
 powerbi_sus <- sustainability %>%
   #drop missing foas (we need to associate the missing ones in the mapping_foas)
   filter(!is.na(foa)) %>%
+  mutate(theme = from_nlo_to_foas(theme)) %>%
   group_by(country,region, theme,improvement, foa,outcome, int_outcome) %>%
   summarise(when_outcome = min(period, na.rm = T),
             achieved_outcome = max(achieved),
@@ -28,10 +41,9 @@ powerbi_sus <- sustainability %>%
   relocate(when_int_outcome,.after = when_outcome) %>%
   mutate(id = as.character(paste0("A",row_number())), .before = country)
 
+names(powerbi_sus)
 
-
-
-export(powerbi_sus, glue('data/11.powerbi/sustainability.csv'))
+export(select(powerbi_sus,-id), glue('data/11.powerbi/sustainability.csv'))
 
 #convert to long to allow conneection betwen outcomes and intermediate outcomes
 powerbi_long <- powerbi_sus %>%

@@ -29,6 +29,9 @@ powerbi_eff <- effectiveness %>%
             
             )
 
+
+
+warnings()
 names(powerbi_eff)
 warnings()
 tabyl(powerbi_sus, foa)

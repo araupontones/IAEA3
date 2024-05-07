@@ -1,0 +1,73 @@
+region,theme,total,impact,value,prop
+Africa,Energy,70,Improve energy planning to meet future energy needs,64,0.914285714285714
+Africa,Energy,70,Support advanced energy production and safe introduction/operation of nuclear power/nuclear fuel cycle in the energy mix,26,0.371428571428571
+Africa,Food and Agriculture,198,Improve food safety and quality,77,0.388888888888889
+Africa,Food and Agriculture,198,Increase Agricultural productivity,107,0.540404040404041
+Africa,Food and Agriculture,198,Increase Livestock productivity,75,0.378787878787879
+Africa,Health and Nutrition,194,Expand Healthcare Services for cancer treatment and other NCDs,97,0.5
+Africa,Health and Nutrition,194,Improve effective diagnosis and treatment of infectious diseases,56,0.288659793814433
+Africa,Health and Nutrition,194,Improve effectiveness of nutrition programmes interventions and practices,56,0.288659793814433
+Africa,Health and Nutrition,194,Improve existing health services for diagnosis and treatment of cancer and other NCDs,138,0.711340206185567
+Africa,Industrial Applications/Radiation technology,76,"Improve efficiency, safety and quality of industrial process",43,0.565789473684211
+Africa,Industrial Applications/Radiation technology,76,"Improve quality, reliability and compatibility of measurements results",43,0.565789473684211
+Africa,Industrial Applications/Radiation technology,76,Improve research and innovation in industrial practices,40,0.526315789473684
+Africa,Safety and Security,199,"Effective radiation protection on the use of ionizing radiation in energy production, medicine, industry and research",118,0.592964824120603
+Africa,Safety and Security,199,Strong and sustainable nuclear and radiation safety framework,141,0.708542713567839
+Africa,Water and the Environment,87,"Assess impact of pollution in land-air, costal ecosystems and oceans",39,0.448275862068966
+Africa,Water and the Environment,87,Improved quality of freshwater systems,39,0.448275862068966
+Africa,Water and the Environment,87,"Monitor effectiveness of remedial action in cobating land, air, costal ecosystems and ocean pollution",23,0.264367816091954
+Africa,Water and the Environment,87,Reduction in contaminant concentration and increase in quality of drinking water,35,0.402298850574713
+Asia and the Pacific,Energy,34,Improve energy planning to meet future energy needs,25,0.735294117647059
+Asia and the Pacific,Energy,34,Support advanced energy production and safe introduction/operation of nuclear power/nuclear fuel cycle in the energy mix,17,0.5
+Asia and the Pacific,Food and Agriculture,156,Improve food safety and quality,86,0.551282051282051
+Asia and the Pacific,Food and Agriculture,156,Increase Agricultural productivity,90,0.576923076923077
+Asia and the Pacific,Food and Agriculture,156,Increase Livestock productivity,32,0.205128205128205
+Asia and the Pacific,Health and Nutrition,153,Expand Healthcare Services for cancer treatment and other NCDs,72,0.470588235294118
+Asia and the Pacific,Health and Nutrition,153,Improve effective diagnosis and treatment of infectious diseases,35,0.228758169934641
+Asia and the Pacific,Health and Nutrition,153,Improve effectiveness of nutrition programmes interventions and practices,23,0.150326797385621
+Asia and the Pacific,Health and Nutrition,153,Improve existing health services for diagnosis and treatment of cancer and other NCDs,120,0.784313725490196
+Asia and the Pacific,Industrial Applications/Radiation technology,83,"Improve efficiency, safety and quality of industrial process",48,0.578313253012048
+Asia and the Pacific,Industrial Applications/Radiation technology,83,"Improve quality, reliability and compatibility of measurements results",44,0.530120481927711
+Asia and the Pacific,Industrial Applications/Radiation technology,83,Improve research and innovation in industrial practices,36,0.433734939759036
+Asia and the Pacific,Safety and Security,113,"Effective radiation protection on the use of ionizing radiation in energy production, medicine, industry and research",73,0.646017699115044
+Asia and the Pacific,Safety and Security,113,Strong and sustainable nuclear and radiation safety framework,69,0.610619469026549
+Asia and the Pacific,Water and the Environment,70,"Assess impact of pollution in land-air, costal ecosystems and oceans",39,0.557142857142857
+Asia and the Pacific,Water and the Environment,70,Improved quality of freshwater systems,18,0.257142857142857
+Asia and the Pacific,Water and the Environment,70,"Monitor effectiveness of remedial action in cobating land, air, costal ecosystems and ocean pollution",33,0.471428571428571
+Asia and the Pacific,Water and the Environment,70,Reduction in contaminant concentration and increase in quality of drinking water,27,0.385714285714286
+Europe,Energy,51,Improve energy planning to meet future energy needs,28,0.549019607843137
+Europe,Energy,51,Support advanced energy production and safe introduction/operation of nuclear power/nuclear fuel cycle in the energy mix,31,0.607843137254902
+Europe,Food and Agriculture,54,Improve food safety and quality,27,0.5
+Europe,Food and Agriculture,54,Increase Agricultural productivity,22,0.407407407407407
+Europe,Food and Agriculture,54,Increase Livestock productivity,23,0.425925925925926
+Europe,Health and Nutrition,118,Expand Healthcare Services for cancer treatment and other NCDs,56,0.474576271186441
+Europe,Health and Nutrition,118,Improve effective diagnosis and treatment of infectious diseases,20,0.169491525423729
+Europe,Health and Nutrition,118,Improve effectiveness of nutrition programmes interventions and practices,6,0.0508474576271187
+Europe,Health and Nutrition,118,Improve existing health services for diagnosis and treatment of cancer and other NCDs,99,0.838983050847458
+Europe,Industrial Applications/Radiation technology,38,"Improve efficiency, safety and quality of industrial process",15,0.394736842105263
+Europe,Industrial Applications/Radiation technology,38,"Improve quality, reliability and compatibility of measurements results",20,0.526315789473684
+Europe,Industrial Applications/Radiation technology,38,Improve research and innovation in industrial practices,21,0.552631578947369
+Europe,Safety and Security,185,"Effective radiation protection on the use of ionizing radiation in energy production, medicine, industry and research",117,0.632432432432433
+Europe,Safety and Security,185,Strong and sustainable nuclear and radiation safety framework,126,0.681081081081081
+Europe,Water and the Environment,58,"Assess impact of pollution in land-air, costal ecosystems and oceans",33,0.568965517241379
+Europe,Water and the Environment,58,Improved quality of freshwater systems,16,0.275862068965517
+Europe,Water and the Environment,58,"Monitor effectiveness of remedial action in cobating land, air, costal ecosystems and ocean pollution",21,0.362068965517241
+Europe,Water and the Environment,58,Reduction in contaminant concentration and increase in quality of drinking water,17,0.293103448275862
+Latin America and the Caribbean,Energy,29,Improve energy planning to meet future energy needs,13,0.448275862068966
+Latin America and the Caribbean,Energy,29,Support advanced energy production and safe introduction/operation of nuclear power/nuclear fuel cycle in the energy mix,18,0.620689655172414
+Latin America and the Caribbean,Food and Agriculture,126,Improve food safety and quality,86,0.682539682539683
+Latin America and the Caribbean,Food and Agriculture,126,Increase Agricultural productivity,49,0.388888888888889
+Latin America and the Caribbean,Food and Agriculture,126,Increase Livestock productivity,30,0.238095238095238
+Latin America and the Caribbean,Health and Nutrition,172,Expand Healthcare Services for cancer treatment and other NCDs,60,0.348837209302326
+Latin America and the Caribbean,Health and Nutrition,172,Improve effective diagnosis and treatment of infectious diseases,44,0.255813953488372
+Latin America and the Caribbean,Health and Nutrition,172,Improve effectiveness of nutrition programmes interventions and practices,27,0.156976744186047
+Latin America and the Caribbean,Health and Nutrition,172,Improve existing health services for diagnosis and treatment of cancer and other NCDs,116,0.674418604651163
+Latin America and the Caribbean,Industrial Applications/Radiation technology,58,"Improve efficiency, safety and quality of industrial process",26,0.448275862068966
+Latin America and the Caribbean,Industrial Applications/Radiation technology,58,"Improve quality, reliability and compatibility of measurements results",28,0.482758620689655
+Latin America and the Caribbean,Industrial Applications/Radiation technology,58,Improve research and innovation in industrial practices,27,0.46551724137931
+Latin America and the Caribbean,Safety and Security,87,"Effective radiation protection on the use of ionizing radiation in energy production, medicine, industry and research",53,0.609195402298851
+Latin America and the Caribbean,Safety and Security,87,Strong and sustainable nuclear and radiation safety framework,58,0.666666666666667
+Latin America and the Caribbean,Water and the Environment,95,"Assess impact of pollution in land-air, costal ecosystems and oceans",54,0.568421052631579
+Latin America and the Caribbean,Water and the Environment,95,Improved quality of freshwater systems,32,0.336842105263158
+Latin America and the Caribbean,Water and the Environment,95,"Monitor effectiveness of remedial action in cobating land, air, costal ecosystems and ocean pollution",28,0.294736842105263
+Latin America and the Caribbean,Water and the Environment,95,Reduction in contaminant concentration and increase in quality of drinking water,20,0.210526315789474
